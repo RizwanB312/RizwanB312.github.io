@@ -1,153 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Rizwan N Portfolio</title>
-<link rel="stylesheet" href="style.css">
-<script defer src="script.js"></script>
+  <meta charset="UTF-8">
+  <title>Rizwan N — Portfolio</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<nav>
-  <h2>Rizwan N Portfolio</h2>
-  <div>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#exp">Experience</a>
-    <a href="#projects">Projects</a>
-    <a href="#resume">Resume</a>
-    <a href="#cert">Cert</a>
-    <a href="#contact">Contact</a>
-  </div>
-</nav>
-
-<header>
-  <img class="profile" src="https://raw.githubusercontent.com/RizwanB312/portfolio-files/main/RICHU.jpg">
+<header class="hero">
+  <img src="https://raw.githubusercontent.com/RizwanB312/portfolio-files/main/RICHU.jpg" class="profile">
   <h1>Rizwan N</h1>
-  <p>Associate Software Engineer • Full Stack Developer • Automation Builder</p>
-  <a class="btn" href="https://github.com/RizwanB312" target="_blank">View GitHub</a>
+  <h2>Associate Software Engineer • Full Stack Developer</h2>
+
+  <div class="buttons">
+    <a href="https://raw.githubusercontent.com/RizwanB312/portfolio-files/main/Rizwan-N-Associate%20Software%20Engineer.pdf" target="_blank">Resume — ASE</a>
+    <a href="https://raw.githubusercontent.com/RizwanB312/portfolio-files/main/Rizwan-N-Full%20Stack%20Developer.pdf" target="_blank">Resume — Full Stack</a>
+    <a href="https://github.com/RizwanB312" target="_blank">GitHub</a>
+    <a href="https://raw.githubusercontent.com/RizwanB312/portfolio-files/main/Be10xCertificate.pdf" target="_blank">BE10X Certificate</a>
+  </div>
 </header>
 
-<section id="about">
-<h2>About Me</h2>
-<div class="card">
-I am an Associate Software Engineer and Full Stack Developer with strong foundations in programming, automation, and web systems. I graduated B.Tech with a CGPA of 8.78 as a college topper. I specialize in building practical tools, automation workflows, and web applications that solve real-world problems. I continuously grow through certifications, hands-on projects, and deep technical practice in DSA and system design. My focus is performance, clean architecture, and scalable solutions.
-</div>
+<section>
+  <h2 onclick="toggle(this)">About Me</h2>
+  <div class="content">
+    <p>
+      B.Tech graduate and college topper with strong foundations in software engineering,
+      full-stack development, and automation. I build real-world tools — including job
+      application automation systems — and focus on writing clean, efficient, production-ready code.
+      Experienced in web technologies, backend logic, databases, and scripting automation.
+      Passionate about scalable systems, performance, and continuous upskilling through
+      certifications and project work.
+    </p>
+  </div>
 </section>
 
-<section id="skills">
-<h2>Skills</h2>
+<section>
+  <h2 onclick="toggle(this)">Skills</h2>
+  <div class="content">
 
-<div class="grid">
+    <h3>Languages</h3>
+    <div class="bubbles">
+      <span>Python</span><span>C</span><span>Java</span><span>JavaScript</span>
+    </div>
 
-<div class="card">
-<h3>Languages</h3>
-C<br>Python<br>Java<br>JavaScript
-</div>
+    <h3>Web</h3>
+    <div class="bubbles">
+      <span>HTML</span><span>CSS</span><span>React Basics</span>
+    </div>
 
-<div class="card">
-<h3>Web Technologies</h3>
-HTML<br>CSS<br>JavaScript<br>Full Stack Development
-</div>
+    <h3>Databases</h3>
+    <div class="bubbles">
+      <span>MySQL</span><span>SQL</span>
+    </div>
 
-<div class="card">
-<h3>Databases</h3>
-SQL Basics<br>Data Handling Concepts
-</div>
+    <h3>Additional</h3>
+    <div class="bubbles">
+      <span>Automation</span><span>SEO</span><span>ETL Testing</span>
+      <span>Git</span><span>API Usage</span>
+    </div>
 
-<div class="card">
-<h3>Additional Skills</h3>
-Automation Scripting<br>Web Scraping<br>SEO Analytics<br>Git & Version Control<br>Problem Solving
-</div>
-
-</div>
+  </div>
 </section>
 
-<section id="exp">
-<h2>Experience</h2>
+<section>
+  <h2 onclick="toggle(this)">Experience</h2>
+  <div class="content">
 
-<div class="card toggle">
-<h3>Web Developer Intern — Cyberfox Solutions</h3>
-<div class="hidden">
-• Built and improved frontend components<br>
-• Worked on internal web tools<br>
-• Optimized UI behavior and performance<br>
-• Assisted in feature implementation and testing
-</div>
-</div>
+    <div class="card">
+      <h3>SEO Executive — Part Time</h3>
+      <p>Cyberfox Solutions (Nov 2025 — Present)</p>
+      <ul>
+        <li>Keyword strategy & technical SEO optimization</li>
+        <li>On-page & performance improvements</li>
+        <li>Analytics tracking & ranking improvements</li>
+        <li>Tools: SEO tools, analytics platforms</li>
+      </ul>
+    </div>
 
-<div class="card toggle">
-<h3>SEO Executive (Part-Time) — Cyberfox Solutions</h3>
-<div class="hidden">
-• SEO analytics and optimization work<br>
-• Technical SEO improvements<br>
-• Performance tracking and reporting<br>
-• Content and ranking optimization support
-</div>
-</div>
+    <div class="card">
+      <h3>Web Developer Intern</h3>
+      <p>Cyberfox Solutions (Aug 2024 — Feb 2025)</p>
+      <ul>
+        <li>Built responsive web pages</li>
+        <li>Frontend + backend integration</li>
+        <li>UI fixes & performance tuning</li>
+        <li>Tech: HTML, CSS, JS, backend APIs</li>
+      </ul>
+    </div>
 
+  </div>
 </section>
 
-<section id="projects">
-<h2>Projects</h2>
+<section>
+  <h2 onclick="toggle(this)">Projects</h2>
+  <div class="content">
 
-<div class="card">
-<h3>Naukri Job Scraper</h3>
-Automation system that automatically applies to jobs within platform while skipping external links.<br><br>
-<b>Tech:</b> Python, Automation Scripts, Web Parsing
-</div>
+    <div class="card">
+      <h3>Naukri Auto Apply Bot</h3>
+      <p>
+        Automated job application system that applies to internal listings
+        and skips external redirects intelligently.
+      </p>
+      <p><b>Tech:</b> Python, Automation, Web Parsing</p>
+    </div>
 
-<div class="card">
-<h3>Indeed Automation Tool (In Progress)</h3>
-Automation framework for structured job applications and filtering.<br><br>
-<b>Tech:</b> Python, Workflow Automation
-</div>
+    <div class="card">
+      <h3>Portfolio Website</h3>
+      <p>
+        Dynamic GitHub Pages portfolio with interactive UI,
+        resume hosting, certification display, and expandable sections.
+      </p>
+      <p><b>Tech:</b> HTML, CSS, JavaScript</p>
+    </div>
 
+  </div>
 </section>
 
-<section id="resume">
-<h2>Resume</h2>
-
-<a class="btn block"
-href="https://raw.githubusercontent.com/RizwanB312/portfolio-files/main/Rizwan-N-Associate%20Software%20Engineer.pdf"
-target="_blank">
-Associate Software Engineer Resume
-</a>
-
-<a class="btn block"
-href="https://raw.githubusercontent.com/RizwanB312/portfolio-files/main/Rizwan-N-Full%20Stack%20Developer.pdf"
-target="_blank">
-Full Stack Developer Resume
-</a>
-
+<section>
+  <h2 onclick="toggle(this)">Education</h2>
+  <div class="content">
+    <div class="card">
+      <h3>B.Tech — Computer Science</h3>
+      <p>CGPA: 8.78 — College Topper</p>
+    </div>
+  </div>
 </section>
 
-<section id="cert">
-<h2>Certification</h2>
-
-<a class="btn block"
-href="https://raw.githubusercontent.com/RizwanB312/portfolio-files/main/Be10xCertificate.pdf"
-target="_blank">
-View BE10X Certificate
-</a>
-
+<section>
+  <h2 onclick="toggle(this)">Contact</h2>
+  <div class="content">
+    <p>📞 +91 7907075183</p>
+    <p>📧 rizwannowfal001@gmail.com</p>
+    <p>📍 Bangalore, India</p>
+  </div>
 </section>
 
-<section id="contact">
-<h2>Contact</h2>
-
-<div class="card">
-GitHub: https://github.com/RizwanB312<br>
-Role: Associate Software Engineer / Full Stack Developer<br>
-Open to Software & Automation roles
-</div>
-
-</section>
-
-<footer>
-© Rizwan N — Portfolio
-</footer>
-
+<script src="script.js"></script>
 </body>
 </html>
