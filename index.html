@@ -20,15 +20,21 @@ overflow-x:hidden;
 /* progress bar */
 
 #progress{
-position:fixed;top:0;left:0;height:4px;
+position:fixed;
+top:0;
+left:0;
+height:4px;
 background:linear-gradient(90deg,#4f8cff,#00ffd0);
-width:0%;z-index:9999;
+width:0%;
+z-index:9999;
 }
 
-/* bg */
+/* animated bg */
 
 .bg{
-position:fixed;inset:0;z-index:-2;
+position:fixed;
+inset:0;
+z-index:-2;
 background:linear-gradient(120deg,#ffffff,#f5f8ff,#ffffff);
 background-size:200% 200%;
 animation:bgmove 18s infinite linear;
@@ -39,11 +45,16 @@ animation:bgmove 18s infinite linear;
 100%{background-position:200% 200%}
 }
 
-/* shapes */
+/* glow shapes */
 
 .shape{
-position:fixed;width:220px;height:220px;border-radius:40px;
-filter:blur(40px);opacity:.18;z-index:-1;
+position:fixed;
+width:220px;
+height:220px;
+border-radius:40px;
+filter:blur(40px);
+opacity:.18;
+z-index:-1;
 animation:float 14s infinite linear;
 }
 
@@ -60,7 +71,10 @@ animation:float 14s infinite linear;
 /* spotlight */
 
 #spot{
-position:fixed;width:260px;height:260px;border-radius:50%;
+position:fixed;
+width:260px;
+height:260px;
+border-radius:50%;
 pointer-events:none;
 background:radial-gradient(circle,#4f8cff22,transparent 70%);
 transform:translate(-50%,-50%);
@@ -70,18 +84,22 @@ z-index:999;
 /* nav */
 
 nav{
-position:sticky;top:0;
+position:sticky;
+top:0;
 background:#ffffffcc;
 backdrop-filter:blur(14px);
-display:flex;justify-content:space-between;
+display:flex;
+justify-content:space-between;
 padding:18px 40px;
 z-index:100;
 box-shadow:0 8px 30px rgba(0,0,0,.06);
 }
 
 nav a{
-text-decoration:none;color:#111;
-margin-left:20px;font-weight:600;
+text-decoration:none;
+color:#111;
+margin-left:20px;
+font-weight:600;
 }
 
 /* hero */
@@ -92,13 +110,19 @@ text-align:center;
 }
 
 .hero img{
-width:150px;border-radius:50%;
+width:150px;
+border-radius:50%;
 box-shadow:0 20px 60px rgba(0,0,0,.18);
 transition:.4s;
 }
 
+.hero img:hover{
+transform:scale(1.12);
+box-shadow:0 30px 90px rgba(0,0,0,.25);
+}
+
 .hero h1{
-font-size:42px;
+font-size:40px;
 font-weight:800;
 margin-top:25px;
 background:linear-gradient(90deg,#4f8cff,#00ffd0);
@@ -115,7 +139,11 @@ opacity:.85;
 
 /* sections */
 
-section{padding:90px 8%;}
+section{
+padding:90px 8%;
+}
+
+/* titles */
 
 .title{
 font-size:34px;
@@ -131,9 +159,16 @@ border-radius:24px;
 padding:32px;
 box-shadow:0 25px 70px rgba(0,0,0,.08);
 transition:.35s;
+transform-style:preserve-3d;
+position:relative;
 }
 
-.card:hover{transform:translateY(-8px) scale(1.02);}
+/* V3 hover glow */
+
+.card:hover{
+transform:translateY(-10px) scale(1.02);
+box-shadow:0 30px 90px rgba(79,140,255,.25);
+}
 
 /* grid */
 
@@ -160,6 +195,13 @@ border-radius:999px;
 margin:8px;
 font-size:14px;
 box-shadow:0 8px 22px rgba(0,0,0,.08);
+transition:.25s;
+}
+
+.bubble:hover{
+transform:scale(1.15);
+background:#4f8cff;
+color:#fff;
 }
 
 /* buttons */
@@ -172,14 +214,20 @@ background:#4f8cff;
 color:#fff;
 text-decoration:none;
 font-weight:600;
+transition:.3s;
 }
 
-/* scroll reveal */
+.btn:hover{
+transform:translateY(-4px);
+box-shadow:0 16px 40px rgba(79,140,255,.4);
+}
+
+/* reveal animation V3 */
 
 .reveal{
 opacity:0;
-transform:translateY(60px);
-transition:all .8s ease;
+transform:translateY(70px) scale(.96);
+transition:all .9s cubic-bezier(.2,.8,.2,1);
 }
 
 .reveal.show{
@@ -231,11 +279,11 @@ Automation-focused developer building AI tools, bots, testing systems, and smart
 <div class="grid">
 <div class="card">
 <h3>Web Developer Intern</h3>
-<p>Built responsive sites, optimized UI, integrated APIs.</p>
+<p>Built responsive sites, optimized UI performance, integrated APIs, improved load efficiency.</p>
 </div>
 <div class="card">
 <h3>SEO Executive</h3>
-<p>Technical SEO audits and ranking improvements.</p>
+<p>Technical SEO audits, ranking improvements, analytics optimization.</p>
 </div>
 </div>
 </section>
@@ -303,24 +351,28 @@ spot.style.left=e.clientX+'px';
 spot.style.top=e.clientY+'px';
 });
 
-/* progress */
+/* scroll progress */
 window.addEventListener('scroll',()=>{
 const h=document.documentElement;
 const sc=(h.scrollTop)/(h.scrollHeight-h.clientHeight)*100;
 document.getElementById('progress').style.width=sc+'%';
 });
 
-/* reveal */
-const els=document.querySelectorAll('.reveal');
-const obs=new IntersectionObserver(entries=>{
-entries.forEach(entry=>{
-if(entry.isIntersecting){
-entry.target.classList.add('show');
+/* reveal — fixed reliable version */
+const reveals=document.querySelectorAll('.reveal');
+
+function revealOnScroll(){
+const trigger=window.innerHeight*0.85;
+reveals.forEach((el,i)=>{
+const top=el.getBoundingClientRect().top;
+if(top<trigger){
+setTimeout(()=>el.classList.add('show'), i*120);
 }
 });
-},{threshold:.15});
+}
 
-els.forEach(el=>obs.observe(el));
+window.addEventListener('scroll',revealOnScroll);
+window.addEventListener('load',revealOnScroll);
 
 </script>
 
