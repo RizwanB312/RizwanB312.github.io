@@ -1,76 +1,96 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Segoe UI", Arial, sans-serif;
   margin: 0;
-  background: linear-gradient(135deg,#1f2937,#111827);
+  background: #f9fafb;
+  color: #111827;
+}
+
+/* Accent streak header */
+.hero {
+  text-align: center;
+  padding: 50px 20px;
+  background: linear-gradient(120deg,#0ea5e9,#22c55e,#6366f1);
   color: white;
 }
 
-.hero {
-  text-align: center;
-  padding: 40px 20px;
-}
-
 .profile {
-  width: 160px;
-  height: 160px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
-  border: 4px solid #22c55e;
   object-fit: cover;
+  border: 5px solid white;
   margin-bottom: 15px;
 }
 
-h1 {
-  margin: 5px 0;
-  font-size: 32px;
-}
-
+/* Section headers */
 h2 {
   cursor: pointer;
-  background: #22c55e;
-  color: black;
-  padding: 12px;
-  margin: 20px;
-  border-radius: 10px;
+  background: white;
+  padding: 14px;
+  margin: 24px auto 12px;
+  border-radius: 12px;
+  max-width: 1000px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
 }
 
-h3 {
-  color: #22c55e;
+/* Bigger About font */
+.about-text {
+  font-size: 18px;
+  line-height: 1.7;
 }
 
+/* Main content container */
+.content {
+  display: none;
+  max-width: 1000px;
+  margin: auto;
+  padding: 10px 20px 30px;
+}
+
+/* Main block */
+.main-card {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  margin: 16px 0;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  border-left: 6px solid #22c55e;
+}
+
+/* Inner bubble container */
+.bubble-wrap {
+  margin-top: 12px;
+}
+
+/* Small bubbles */
+.bubble {
+  display: inline-block;
+  background: linear-gradient(120deg,#e0f2fe,#dcfce7);
+  padding: 8px 14px;
+  margin: 6px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* Experience / Project cards */
+.card {
+  background: white;
+  padding: 18px;
+  margin: 14px 0;
+  border-radius: 14px;
+  box-shadow: 0 5px 16px rgba(0,0,0,0.08);
+  border-top: 4px solid #0ea5e9;
+}
+
+/* Buttons */
 .buttons a {
   display: inline-block;
   margin: 8px;
   padding: 10px 16px;
-  background: #22c55e;
-  color: black;
+  background: white;
+  color: #111827;
   text-decoration: none;
-  border-radius: 8px;
-  font-weight: bold;
-}
-
-section {
-  max-width: 900px;
-  margin: auto;
-}
-
-.content {
-  display: none;
-  padding: 0 20px 20px 20px;
-}
-
-.card {
-  background: #1f2937;
-  padding: 15px;
-  margin: 12px 0;
-  border-radius: 12px;
-}
-
-.bubbles span {
-  display: inline-block;
-  background: #22c55e;
-  color: black;
-  padding: 8px 14px;
-  border-radius: 20px;
-  margin: 6px;
+  border-radius: 10px;
   font-weight: bold;
 }
