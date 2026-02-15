@@ -109,7 +109,7 @@ nav a:hover::after{width:100%;}
 .hero{
  padding:120px 20px 80px;
  text-align:center;
- background:#ffffff; /* solid and fixed */
+ background:#ffffff; /* solid */
 }
 .hero img{
  width:170px;
@@ -501,16 +501,16 @@ Percentage: 90%
 <section id="resume">
 <h2 class="title">Resume</h2>
 <div class="grid">
-<div class="card">
-<a class="btn" href="https://raw.githubusercontent.com/RizwanB312/portfolio-files/main/Rizwan-N-Full%20Stack%20Developer.pdf">
-Full Stack Resume
-</a>
-</div>
-<div class="card">
-<a class="btn" href="https://raw.githubusercontent.com/RizwanB312/portfolio-files/main/Rizwan-N-Associate%20Software%20Engineer.pdf">
-Associate Resume
-</a>
-</div>
+  <div class="card">
+    <a class="btn" href="https://raw.githubusercontent.com/RizwanB312/portfolio-files/main/Rizwan-N-Full%20Stack%20Developer.pdf">
+      Full Stack Developer
+    </a>
+  </div>
+  <div class="card">
+    <a class="btn" href="https://raw.githubusercontent.com/RizwanB312/portfolio-files/main/Rizwan-N-Associate%20Software%20Engineer.pdf">
+      Associate Software Developer
+    </a>
+  </div>
 </div>
 </section>
 
@@ -589,8 +589,8 @@ function updateActiveSection(){
 updateActiveSection();
 window.addEventListener('scroll',updateActiveSection);
 
-// typing (now completely disabled)
-const text=""; // empty string
+// typing (disabled)
+const text="";
 let i=0;
 function type(){
  if(i<text.length){
