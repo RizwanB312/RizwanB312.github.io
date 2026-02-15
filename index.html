@@ -109,7 +109,7 @@ nav a:hover::after{width:100%;}
 .hero{
  padding:120px 20px 80px;
  text-align:center;
- background:rgba(255,255,255,0.9); /* make sure fully visible */
+ background:#ffffff; /* solid and fixed */
 }
 .hero img{
  width:170px;
@@ -139,6 +139,7 @@ nav a:hover::after{width:100%;}
 }
 
 /* ---------- sections ---------- */
+/* only one section visible at a time */
 section{
  padding:90px 8%;
  opacity:0;
@@ -149,6 +150,8 @@ section.active{
  opacity:1;
  transform:translateY(0);
 }
+section.hero{opacity:1;transform:none;} /* hero always visible initially */
+
 .title{
  font-size:36px;
  font-weight:800;
@@ -173,7 +176,6 @@ section.active{
  padding:32px;
  box-shadow:0 25px 70px rgba(0,0,0,.08);
  transition:.35s;
- transform-style:preserve-3d;
  position:relative;
  overflow:hidden;
 }
@@ -416,11 +418,17 @@ Alappuzha, India<br>
 2020 – 2024<br>
 CGPA: 8.78<br>
 College Topper of 2020–24 Batch<br><br>
+
 <strong>Higher Secondary Education (Science Stream)</strong><br>
 G.H.S.S Quilon West<br>
 Kollam, India<br>
 2018 – 2020<br>
-Percentage: 92.8% (Distinction)
+Percentage: 92.8% (Distinction)<br><br>
+
+<strong>Secondary Education (10th Grade)</strong><br>
+TRINITY LYCEUM<br>
+Kollam, India<br>
+Percentage: 90%
 </div>
 </section>
 
@@ -553,7 +561,7 @@ window.addEventListener('scroll',()=>{
  document.getElementById('progress').style.width=sc+'%';
 });
 
-// show only one section at a time (new info appears, old disappears)
+// show only one section at a time
 const sections=[...document.querySelectorAll('section')];
 function updateActiveSection(){
  const viewportMid=window.innerHeight/2;
@@ -573,7 +581,7 @@ function updateActiveSection(){
  sections.forEach(sec=>{
    if(sec===closest){
      sec.classList.add('active');
-   }else{
+   }else if(!sec.classList.contains('hero')){
      sec.classList.remove('active');
    }
  });
@@ -581,8 +589,8 @@ function updateActiveSection(){
 updateActiveSection();
 window.addEventListener('scroll',updateActiveSection);
 
-// typing (just keep role keywords if you want or clear it)
-const text="";
+// typing (now completely disabled)
+const text=""; // empty string
 let i=0;
 function type(){
  if(i<text.length){
