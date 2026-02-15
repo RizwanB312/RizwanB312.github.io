@@ -8,298 +8,297 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 
 <style>
-
 *{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif;scroll-behavior:smooth;}
-
 body{
-background:#ffffff;
-color:#111;
-overflow-x:hidden;
+ background:#ffffff;
+ color:#111;
+ overflow-x:hidden;
 }
 
 /* ---------- scroll progress ---------- */
-
 #progress{
-position:fixed;
-top:0;
-left:0;
-height:4px;
-background:linear-gradient(90deg,#4f8cff,#00ffd0);
-width:0%;
-z-index:9999;
+ position:fixed;
+ top:0;
+ left:0;
+ height:4px;
+ background:linear-gradient(90deg,#4f8cff,#00ffd0);
+ width:0%;
+ z-index:9999;
 }
 
 /* ---------- animated gradient bg ---------- */
-
 .bg{
-position:fixed;
-inset:0;
-z-index:-2;
-background:linear-gradient(120deg,#ffffff,#f5f8ff,#ffffff);
-background-size:200% 200%;
-animation:bgmove 18s infinite linear;
+ position:fixed;
+ inset:0;
+ z-index:-2;
+ background:linear-gradient(120deg,#ffffff,#f5f8ff,#ffffff);
+ background-size:200% 200%;
+ animation:bgmove 18s infinite linear;
 }
-
 @keyframes bgmove{
-0%{background-position:0 0}
-100%{background-position:200% 200%}
+ 0%{background-position:0 0}
+ 100%{background-position:200% 200%}
 }
 
 /* ---------- floating shapes ---------- */
-
 .shape{
-position:fixed;
-width:220px;
-height:220px;
-border-radius:40px;
-filter:blur(40px);
-opacity:.18;
-z-index:-1;
-animation:float 14s infinite linear;
+ position:fixed;
+ width:220px;
+ height:220px;
+ border-radius:40px;
+ filter:blur(40px);
+ opacity:.18;
+ z-index:-1;
+ animation:float 14s infinite linear;
 }
-
 .s1{background:#4f8cff; top:10%; left:5%;}
 .s2{background:#00ffd0; top:70%; left:10%; animation-duration:20s;}
 .s3{background:#ffb347; top:30%; right:5%; animation-duration:18s;}
-
 @keyframes float{
-0%{transform:translateY(0) rotate(0)}
-50%{transform:translateY(-80px) rotate(180deg)}
-100%{transform:translateY(0) rotate(360deg)}
+ 0%{transform:translateY(0) rotate(0)}
+ 50%{transform:translateY(-80px) rotate(180deg)}
+ 100%{transform:translateY(0) rotate(360deg)}
 }
 
 /* ---------- cursor spotlight ---------- */
-
 #spot{
-position:fixed;
-width:260px;
-height:260px;
-border-radius:50%;
-pointer-events:none;
-background:radial-gradient(circle,#4f8cff22,transparent 70%);
-transform:translate(-50%,-50%);
-z-index:999;
+ position:fixed;
+ width:260px;
+ height:260px;
+ border-radius:50%;
+ pointer-events:none;
+ background:radial-gradient(circle,#4f8cff22,transparent 70%);
+ transform:translate(-50%,-50%);
+ z-index:999;
 }
 
 /* ---------- nav ---------- */
-
 nav{
-position:sticky;
-top:0;
-background:#ffffffcc;
-backdrop-filter:blur(14px);
-display:flex;
-justify-content:space-between;
-padding:18px 40px;
-z-index:100;
-box-shadow:0 8px 30px rgba(0,0,0,.06);
+ position:sticky;
+ top:0;
+ background:#ffffffcc;
+ backdrop-filter:blur(14px);
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ padding:18px 40px;
+ z-index:100;
+ box-shadow:0 8px 30px rgba(0,0,0,.06);
 }
-
+nav b{font-weight:800;}
 nav a{
-text-decoration:none;
-color:#111;
-margin-left:20px;
-font-weight:600;
-position:relative;
+ text-decoration:none;
+ color:#111;
+ margin-left:20px;
+ font-weight:600;
+ position:relative;
 }
-
 nav a::after{
-content:'';
-position:absolute;
-left:0;
-bottom:-6px;
-height:3px;
-width:0%;
-background:#4f8cff;
-transition:.3s;
+ content:'';
+ position:absolute;
+ left:0;
+ bottom:-6px;
+ height:3px;
+ width:0%;
+ background:#4f8cff;
+ transition:.3s;
 }
-
 nav a:hover::after{width:100%;}
 
 /* ---------- hero ---------- */
-
 .hero{
-padding:120px 20px 80px;
-text-align:center;
+ padding:120px 20px 80px;
+ text-align:center;
 }
-
 .hero img{
-width:170px;
-border-radius:50%;
-box-shadow:0 20px 60px rgba(0,0,0,.18);
-transition:.4s;
+ width:170px;
+ border-radius:50%;
+ box-shadow:0 20px 60px rgba(0,0,0,.18);
+ transition:.4s;
 }
-
 .hero img:hover{transform:scale(1.1) rotate(2deg);}
-
 .hero h1{
-font-size:54px;
-font-weight:800;
-margin-top:25px;
-background:linear-gradient(90deg,#4f8cff,#00ffd0);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
+ font-size:54px;
+ font-weight:800;
+ margin-top:25px;
+ background:linear-gradient(90deg,#4f8cff,#00ffd0);
+ -webkit-background-clip:text;
+ -webkit-text-fill-color:transparent;
 }
-
 .typing{
-font-size:22px;
-margin-top:10px;
-opacity:.8;
-height:30px;
+ font-size:22px;
+ margin-top:10px;
+ opacity:.8;
+ height:30px;
 }
 
 /* ---------- sections ---------- */
-
 section{padding:90px 8%;}
-
 .title{
-font-size:36px;
-font-weight:800;
-margin-bottom:45px;
-position:relative;
+ font-size:36px;
+ font-weight:800;
+ margin-bottom:45px;
+ position:relative;
 }
-
 .title::before{
-content:'';
-position:absolute;
-left:-20px;
-top:8px;
-width:8px;
-height:32px;
-background:#4f8cff;
-border-radius:4px;
+ content:'';
+ position:absolute;
+ left:-20px;
+ top:8px;
+ width:8px;
+ height:32px;
+ background:#4f8cff;
+ border-radius:4px;
 }
 
 /* ---------- glass cards ---------- */
-
 .card{
-background:#ffffffdd;
-border-radius:24px;
-padding:32px;
-box-shadow:0 25px 70px rgba(0,0,0,.08);
-transition:.35s;
-transform-style:preserve-3d;
-position:relative;
-overflow:hidden;
+ background:#ffffffdd;
+ border-radius:24px;
+ padding:32px;
+ box-shadow:0 25px 70px rgba(0,0,0,.08);
+ transition:.35s;
+ transform-style:preserve-3d;
+ position:relative;
+ overflow:hidden;
 }
-
 .card::before{
-content:'';
-position:absolute;
-inset:0;
-background:linear-gradient(120deg,transparent,rgba(255,255,255,.6),transparent);
-transform:translateX(-100%);
-transition:.6s;
+ content:'';
+ position:absolute;
+ inset:0;
+ background:linear-gradient(120deg,transparent,rgba(255,255,255,.6),transparent);
+ transform:translateX(-100%);
+ transition:.6s;
 }
-
 .card:hover::before{transform:translateX(100%);}
 .card:hover{transform:translateY(-10px) scale(1.02);}
 
 /* ---------- grid ---------- */
-
 .grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:34px;
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+ gap:34px;
 }
 
 /* ---------- about ---------- */
-
 .about{
-font-size:19px;
-line-height:1.9;
+ font-size:19px;
+ line-height:1.9;
+}
+
+/* ---------- experience layout ---------- */
+.exp-role{
+ display:flex;
+ justify-content:space-between;
+ align-items:flex-start;
+ margin-bottom:8px;
+}
+.exp-meta{
+ font-size:14px;
+ opacity:.8;
+}
+.exp-points{
+ margin-top:10px;
+ font-size:15px;
+ line-height:1.8;
+}
+.exp-points li{
+ margin-left:18px;
+ margin-bottom:4px;
 }
 
 /* ---------- skills nested ---------- */
-
 .skill-main{
-background:#f6f8ff;
-border-radius:22px;
-padding:26px;
-margin-bottom:24px;
-box-shadow:inset 0 0 0 2px #e9edff;
-position:relative;
+ background:#f6f8ff;
+ border-radius:22px;
+ padding:26px;
+ margin-bottom:24px;
+ box-shadow:inset 0 0 0 2px #e9edff;
+ position:relative;
 }
-
 .skill-main h3{margin-bottom:16px;}
-
 .bubble{
-display:inline-block;
-background:#fff;
-padding:10px 16px;
-border-radius:999px;
-margin:8px;
-font-size:14px;
-box-shadow:0 8px 22px rgba(0,0,0,.08);
-transition:.25s;
-position:relative;
-overflow:hidden;
+ display:inline-block;
+ background:#fff;
+ padding:10px 16px;
+ border-radius:999px;
+ margin:8px;
+ font-size:14px;
+ box-shadow:0 8px 22px rgba(0,0,0,.08);
+ transition:.25s;
+ position:relative;
+ overflow:hidden;
 }
-
 .bubble:hover{
-background:#4f8cff;
-color:#fff;
-transform:scale(1.15);
+ background:#4f8cff;
+ color:#fff;
+ transform:scale(1.15);
 }
 
 /* ---------- buttons ---------- */
-
 .btn{
-display:inline-block;
-padding:14px 22px;
-border-radius:14px;
-background:#4f8cff;
-color:#fff;
-text-decoration:none;
-font-weight:600;
-transition:.3s;
-position:relative;
+ display:inline-block;
+ padding:14px 22px;
+ border-radius:14px;
+ background:#4f8cff;
+ color:#fff;
+ text-decoration:none;
+ font-weight:600;
+ transition:.3s;
+ position:relative;
 }
-
 .btn:hover{
-transform:translateY(-4px);
-box-shadow:0 16px 40px rgba(79,140,255,.4);
+ transform:translateY(-4px);
+ box-shadow:0 16px 40px rgba(79,140,255,.4);
 }
 
 /* ---------- project hover overlay ---------- */
-
 .project{
-position:relative;
-overflow:hidden;
+ position:relative;
+ overflow:hidden;
 }
-
 .project-overlay{
-position:absolute;
-inset:0;
-background:linear-gradient(180deg,transparent,#4f8cffcc);
-color:#fff;
-display:flex;
-align-items:flex-end;
-padding:24px;
-transform:translateY(100%);
-transition:.4s;
+ position:absolute;
+ inset:0;
+ background:linear-gradient(180deg,transparent,#4f8cffcc);
+ color:#fff;
+ display:flex;
+ align-items:flex-end;
+ padding:24px;
+ transform:translateY(100%);
+ transition:.4s;
 }
+.project:hover .project-overlay{transform:translateY(0);}
 
-.project:hover .project-overlay{
-transform:translateY(0);
-}
-
-/* ---------- reveal ---------- */
-
+/* ---------- reveal + v3 scroll dynamics ---------- */
 .reveal{
-opacity:0;
-transform:translateY(60px);
-transition:1s;
+ opacity:0;
+ transform:translateY(60px) scale(.98);
+ transition:opacity .9s ease,transform .9s ease,filter .9s ease;
+ filter:blur(6px);
 }
-
 .reveal.show{
-opacity:1;
-transform:none;
+ opacity:1;
+ transform:translateY(0) scale(1);
+ filter:blur(0);
 }
 
+/* fading older sections while scrolling */
+section{
+ position:relative;
+ transition:opacity .6s ease,transform .6s ease;
+}
+section.dimmed{
+ opacity:.25;
+ transform:scale(.98);
+}
+
+/* subtle parallax on cards */
+.card.parallax{
+ transform:translateY(var(--offset,0px));
+}
 </style>
 </head>
-
 <body>
 
 <div id="progress"></div>
@@ -324,14 +323,14 @@ transform:none;
 </nav>
 
 <section class="hero">
-<img src="https://raw.githubusercontent.com/RizwanB312/portfolio-files/main/RICHU.jpg">
+<img src="https://raw.githubusercontent.com/RizwanB312/portfolio-files/main/RICHU.jpg" alt="Rizwan N">
 <h1>Associate Software Engineer</h1>
 <div class="typing" id="typing"></div>
 </section>
 
 <section id="about" class="reveal">
 <h2 class="title">About Me</h2>
-<div class="card about">
+<div class="card about parallax">
 Automation-focused developer building AI tools, bots, testing systems, and smart web applications.  
 Specialized in Python automation, job-workflow bots, AI chat systems, and interactive utilities.  
 I focus on real-world usable systems — not toy demos — combining AI + web + scripting for productivity impact.
@@ -341,79 +340,106 @@ I focus on real-world usable systems — not toy demos — combining AI + web + 
 <section id="experience" class="reveal">
 <h2 class="title">Experience</h2>
 <div class="grid">
-<div class="card">
-<h3>Web Developer Intern</h3>
-<p>Built responsive sites, optimized UI performance, integrated backend APIs, and improved load efficiency.</p>
+
+<div class="card parallax">
+<div class="exp-role">
+  <div>
+    <h3>SEO Executive</h3>
+    <div class="exp-meta">Cyberfox Solutions · Bangalore, India</div>
+  </div>
+  <div class="exp-meta">04/2025 – Present</div>
 </div>
-<div class="card">
-<h3>SEO Executive</h3>
-<p>Technical SEO audits, ranking improvements, analytics optimization, and search performance tuning.</p>
+<ul class="exp-points">
+  <li>Built Python automation tools for backlink validation and SERP rank tracking to keep SEO performance accurate and up to date.</li>
+  <li>Developed a multi-page metadata crawler for large-scale technical SEO audits across client domains.</li>
+  <li>Automated GA4 and Google Search Console reporting workflows using data processing scripts and scheduled jobs.</li>
+  <li>Implemented a rule-based blog SEO audit system to flag missing tags, thin content, and internal linking issues.</li>
+  <li>Reduced manual SEO reporting workload through scripting, batch processing, and reusable Python utilities.</li>
+  <li>Generated structured SEO performance datasets that fed into dashboards and optimization decisions for clients.</li>
+</ul>
 </div>
+
+<div class="card parallax">
+<div class="exp-role">
+  <div>
+    <h3>Web Developer Intern</h3>
+    <div class="exp-meta">Cyberfox Solutions · Kochi, India</div>
+  </div>
+  <div class="exp-meta">08/2024 – 02/2025</div>
+</div>
+<ul class="exp-points">
+  <li>Developed and customized WordPress websites based on detailed client functional requirements.</li>
+  <li>Implemented responsive UI components using HTML, CSS, and JavaScript to ensure mobile-friendly layouts.</li>
+  <li>Configured plugins, optimized assets, and improved site performance before deployment.</li>
+  <li>Prepared sites for launch with SEO-friendly structures, basic security hardening, and analytics hooks.</li>
+  <li>Coordinated with the SEO team to implement technical optimizations and analytics integrations using GA4 and Search Console.</li>
+</ul>
+</div>
+
 </div>
 </section>
 
 <section id="education" class="reveal">
 <h2 class="title">Education</h2>
-<div class="card">
-B.Tech — Computer Science  
-CGPA: 8.78 — College Topper
+<div class="card parallax">
+<strong>B. Tech in Computer Science and Engineering</strong><br>
+College of Engineering and Management Punnapra · Alappuzha, India<br>
+2020 – 2024 · CGPA: 8.78 · College Topper of 2020–24 Batch
 </div>
 </section>
 
 <section id="skills" class="reveal">
 <h2 class="title">Skills</h2>
 
-<div class="skill-main">
+<div class="skill-main parallax">
 <h3>Languages</h3>
 <span class="bubble">Python</span>
-<span class="bubble">Java</span>
 <span class="bubble">C</span>
+<span class="bubble">Java</span>
 <span class="bubble">JavaScript</span>
 </div>
 
-<div class="skill-main">
+<div class="skill-main parallax">
 <h3>Web</h3>
 <span class="bubble">HTML</span>
 <span class="bubble">CSS</span>
-<span class="bubble">React Basics</span>
+<span class="bubble">Flask</span>
 <span class="bubble">REST APIs</span>
 </div>
 
-<div class="skill-main">
+<div class="skill-main parallax">
 <h3>Databases</h3>
 <span class="bubble">MySQL</span>
-<span class="bubble">SQLite</span>
 </div>
 
-<div class="skill-main">
+<div class="skill-main parallax">
 <h3>Additional</h3>
 <span class="bubble">Automation</span>
-<span class="bubble">ETL Testing</span>
 <span class="bubble">Selenium</span>
-<span class="bubble">Git</span>
-<span class="bubble">Linux</span>
+<span class="bubble">Debugging</span>
+<span class="bubble">Git & GitHub</span>
+<span class="bubble">VS Code</span>
 </div>
 
 </section>
 
 <section id="projects" class="reveal">
 <h2 class="title">Projects</h2>
-
 <div class="grid">
 
-<div class="card project">
-<h3>AI Chatbot</h3>
-<div class="project-overlay">LLM powered conversational system</div>
+<div class="card project parallax">
+<h3>AI Guardian — Mental Health Chatbot</h3>
+<div class="project-overlay">NLP-based emotion-aware chatbot built with Python, TensorFlow, Flask, and MySQL.</div>
 </div>
 
-<div class="card project">
-<h3>AI Mouse</h3>
-<div class="project-overlay">Gesture controlled cursor system</div>
+<div class="card project parallax">
+<h3>Automated Naukri Job Scraper & Auto-Apply Bot</h3>
+<div class="project-overlay">End-to-end Selenium automation for scraping, filtering, and auto-applying to jobs.</div>
 </div>
 
-<div class="card project">
-<h3>Naukri Automation Bot</h3>
-<div class="project-overlay">Automated job apply pipeline</div>
+<div class="card project parallax">
+<h3>AI Mouse — Hand Gesture Control</h3>
+<div class="project-overlay">Real-time gesture-based cursor control using OpenCV and MediaPipe.</div>
 </div>
 
 </div>
@@ -422,65 +448,99 @@ CGPA: 8.78 — College Topper
 <section id="resume" class="reveal">
 <h2 class="title">Resume</h2>
 <div class="grid">
-<div class="card"><a class="btn" href="https://raw.githubusercontent.com/RizwanB312/portfolio-files/main/Rizwan-N-Full%20Stack%20Developer.pdf">Full Stack Resume</a></div>
-<div class="card"><a class="btn" href="https://raw.githubusercontent.com/RizwanB312/portfolio-files/main/Rizwan-N-Associate%20Software%20Engineer.pdf">Associate Resume</a></div>
+<div class="card parallax">
+<a class="btn" href="https://raw.githubusercontent.com/RizwanB312/portfolio-files/main/Rizwan-N-Full%20Stack%20Developer.pdf" target="_blank">
+Full Stack Resume
+</a>
+</div>
+<div class="card parallax">
+<a class="btn" href="https://raw.githubusercontent.com/RizwanB312/portfolio-files/main/Rizwan-N-Associate%20Software%20Engineer.pdf" target="_blank">
+Associate Resume
+</a>
+</div>
 </div>
 </section>
 
 <section id="cert" class="reveal">
 <h2 class="title">Certifications</h2>
-<div class="card">
-Be10x AI Mastery — Applied AI tools, workflow automation, productivity AI deployment.
-<br><br>
-<a class="btn" href="https://raw.githubusercontent.com/RizwanB312/portfolio-files/main/Be10xCertificate.pdf">View Certificate</a>
+<div class="card parallax">
+<strong>AI Mastery Program — Be10x</strong><br><br>
+Completed structured training in AI-assisted development, automation workflows, and data tools (Python with AI tools, SQL, Power BI, AI-powered web/app development, and automation platforms).<br>
+Applied AI-assisted techniques for productivity, data handling, and technical workflow optimization.<br><br>
+<a class="btn" href="https://raw.githubusercontent.com/RizwanB312/portfolio-files/main/Be10xCertificate.pdf" target="_blank">View Certificate</a>
 </div>
 </section>
 
 <section id="contact" class="reveal">
 <h2 class="title">Contact</h2>
-<div class="card">
+<div class="card parallax">
 📞 +91 7907075183<br>
 📧 rizwannowfal001@gmail.com<br>
 📍 Bangalore, India<br>
-GitHub: RizwanB312<br>
-LinkedIn: linkedin.com/in/rizwan-n-72955234a
+GitHub: <a href="https://github.com/RizwanB312" target="_blank">RizwanB312</a><br>
+LinkedIn: <a href="https://www.linkedin.com/in/rizwan-n-72955234a" target="_blank">linkedin.com/in/rizwan-n-72955234a</a>
 </div>
 </section>
 
 <script>
-
-/* spotlight */
+// spotlight
 const spot=document.getElementById('spot');
 document.addEventListener('mousemove',e=>{
-spot.style.left=e.clientX+'px';
-spot.style.top=e.clientY+'px';
+ spot.style.left=e.clientX+'px';
+ spot.style.top=e.clientY+'px';
 });
 
-/* scroll progress */
+// scroll progress
 window.addEventListener('scroll',()=>{
-const h=document.documentElement;
-const sc=(h.scrollTop)/(h.scrollHeight-h.clientHeight)*100;
-document.getElementById('progress').style.width=sc+'%';
+ const h=document.documentElement;
+ const sc=(h.scrollTop)/(h.scrollHeight-h.clientHeight)*100;
+ document.getElementById('progress').style.width=sc+'%';
 });
 
-/* reveal */
-const els=document.querySelectorAll('.reveal');
-const obs=new IntersectionObserver(es=>{
-es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show');});
-});
-els.forEach(el=>obs.observe(el));
+// reveal + dim old sections + parallax
+const sections=[...document.querySelectorAll('section')];
+const revealEls=document.querySelectorAll('.reveal');
+const obs=new IntersectionObserver(entries=>{
+ entries.forEach(entry=>{
+   if(entry.isIntersecting){
+     entry.target.classList.add('show');
+   }
+ });
+},{threshold:0.2});
+revealEls.forEach(el=>obs.observe(el));
 
-/* typing */
+window.addEventListener('scroll',()=>{
+ const viewportMid=window.innerHeight/2;
+ sections.forEach((sec,idx)=>{
+   const rect=sec.getBoundingClientRect();
+   const secMid=rect.top+rect.height/2;
+   const distance=Math.abs(secMid-viewportMid);
+
+   // dim older sections
+   if(secMid<viewportMid-80){
+     sec.classList.add('dimmed');
+   }else{
+     sec.classList.remove('dimmed');
+   }
+
+   // parallax on cards inside this section
+   const offset=Math.min(40,distance/15);
+   sec.querySelectorAll('.parallax').forEach(card=>{
+     card.style.setProperty('--offset', (rect.top < viewportMid ? offset : -offset) + 'px');
+   });
+ });
+});
+
+// typing
 const text="AI • Automation • Full Stack • Testing";
 let i=0;
 function type(){
-if(i<text.length){
-document.getElementById('typing').innerHTML+=text[i++];
-setTimeout(type,60);
-}
+ if(i<text.length){
+   document.getElementById('typing').innerHTML+=text[i++];
+   setTimeout(type,60);
+ }
 }
 type();
-
 </script>
 
 </body>
