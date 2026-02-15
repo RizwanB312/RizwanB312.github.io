@@ -6,19 +6,30 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
+* { box-sizing: border-box; }
+
 body {
-  font-family: "Segoe UI", Arial, sans-serif;
   margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
   background: #f8fafc;
   color: #111827;
+  overflow-x: hidden;
 }
 
-/* HERO */
+/* Animated gradient hero */
 .hero {
   text-align: center;
-  padding: 50px 20px;
-  background: linear-gradient(120deg,#0ea5e9,#22c55e,#6366f1);
+  padding: 60px 20px;
   color: white;
+  background: linear-gradient(-45deg,#0ea5e9,#22c55e,#6366f1,#a855f7);
+  background-size: 400% 400%;
+  animation: gradientMove 10s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% {background-position:0% 50%;}
+  50% {background-position:100% 50%;}
+  100% {background-position:0% 50%;}
 }
 
 .profile {
@@ -26,126 +37,132 @@ body {
   height: 140px;
   border-radius: 50%;
   object-fit: cover;
-  border: 5px solid white;
+  border: 6px solid white;
   margin-bottom: 15px;
+  transition: transform .4s;
 }
 
-.hero h1 {
-  margin: 10px 0 5px;
-  font-size: 34px;
+.profile:hover {
+  transform: scale(1.08) rotate(2deg);
 }
 
-.hero p {
-  font-size: 18px;
-  opacity: 0.95;
+.hero h1 { margin: 10px 0 5px; font-size: 34px; }
+.hero p { font-size: 18px; opacity: .95; }
+
+/* Buttons */
+.buttons a {
+  display: inline-block;
+  margin: 8px;
+  padding: 11px 18px;
+  background: white;
+  color: #111827;
+  text-decoration: none;
+  border-radius: 12px;
+  font-weight: bold;
+  transition: all .25s;
 }
 
-/* SECTION HEADERS */
+.buttons a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(0,0,0,.18);
+}
+
+/* Section headers */
 h2 {
   cursor: pointer;
   background: white;
   padding: 16px;
-  margin: 24px auto 10px;
-  border-radius: 12px;
+  margin: 26px auto 10px;
+  border-radius: 14px;
   max-width: 1000px;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+  transition: transform .2s;
 }
 
-/* CONTENT */
+h2:hover { transform: scale(1.02); }
+
 .content {
   display: none;
   max-width: 1000px;
   margin: auto;
   padding: 10px 20px 30px;
+  animation: fadeIn .4s ease;
 }
 
-/* ABOUT TEXT BIGGER */
-.about-text {
-  font-size: 18px;
-  line-height: 1.7;
+@keyframes fadeIn {
+  from {opacity:0; transform:translateY(10px);}
+  to {opacity:1; transform:translateY(0);}
 }
 
-/* MAIN CARD (outer block) */
-.main-card {
+/* Cards with tilt */
+.card, .main-card {
   background: white;
-  border-radius: 16px;
   padding: 20px;
   margin: 16px 0;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-  border-left: 6px solid #22c55e;
+  border-radius: 16px;
+  box-shadow: 0 10px 26px rgba(0,0,0,.08);
+  transition: transform .2s, box-shadow .2s;
+  transform-style: preserve-3d;
 }
 
-/* INNER BUBBLES */
+.main-card { border-left: 6px solid #22c55e; }
+.card { border-top: 5px solid #0ea5e9; }
+
+/* About text */
+.about-text {
+  font-size: 19px;
+  line-height: 1.75;
+}
+
+/* Skill bubbles */
 .bubble {
   display: inline-block;
   background: linear-gradient(120deg,#e0f2fe,#dcfce7);
-  padding: 8px 14px;
+  padding: 9px 15px;
   margin: 6px;
-  border-radius: 20px;
+  border-radius: 999px;
   font-weight: 600;
   font-size: 14px;
+  transition: transform .2s, box-shadow .2s;
 }
 
-/* CARD BLOCKS */
-.card {
-  background: white;
-  padding: 18px;
-  margin: 14px 0;
-  border-radius: 14px;
-  box-shadow: 0 5px 16px rgba(0,0,0,0.08);
-  border-top: 4px solid #0ea5e9;
-}
-
-/* BUTTONS */
-.buttons a {
-  display: inline-block;
-  margin: 8px;
-  padding: 10px 16px;
-  background: white;
-  color: #111827;
-  text-decoration: none;
-  border-radius: 10px;
-  font-weight: bold;
-}
-
-.buttons a:hover {
-  background: #e5e7eb;
+.bubble:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 14px rgba(0,0,0,.15);
 }
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
 <section class="hero">
 <img src="https://raw.githubusercontent.com/RizwanB312/portfolio-files/main/RICHU.jpg" class="profile">
+
 <h1>Rizwan N Portfolio</h1>
 <p>Associate Software Engineer • Full Stack Developer • AI Builder</p>
 
 <div class="buttons">
-<a href="https://raw.githubusercontent.com/RizwanB312/portfolio-files/main/Rizwan-N-Associate%20Software%20Engineer.pdf" target="_blank">Associate Resume</a>
-<a href="https://raw.githubusercontent.com/RizwanB312/portfolio-files/main/Rizwan-N-Full%20Stack%20Developer.pdf" target="_blank">Full Stack Resume</a>
-<a href="https://raw.githubusercontent.com/RizwanB312/portfolio-files/main/Be10xCertificate.pdf" target="_blank">BE10X Certificate</a>
+<a target="_blank" href="https://raw.githubusercontent.com/RizwanB312/portfolio-files/main/Rizwan-N-Associate%20Software%20Engineer.pdf">Associate Resume</a>
+<a target="_blank" href="https://raw.githubusercontent.com/RizwanB312/portfolio-files/main/Rizwan-N-Full%20Stack%20Developer.pdf">Full Stack Resume</a>
+<a target="_blank" href="https://raw.githubusercontent.com/RizwanB312/portfolio-files/main/Be10xCertificate.pdf">BE10X Certificate</a>
 </div>
 </section>
 
-<!-- ABOUT -->
 <section>
 <h2 onclick="toggle(this)">About Me</h2>
 <div class="content">
+<div class="card">
 <p class="about-text">
-B.Tech Computer Science graduate and college topper with strong foundations in
-software engineering, automation systems, and full-stack development.
-I design and build real-world technical solutions including AI tools,
-automation frameworks, intelligent chat systems, and developer utilities.
-My work focuses on clean logic, scalable architecture, and production-ready
-implementation. I continuously expand my technical stack through certifications,
-projects, and applied engineering practice.
+B.Tech Computer Science graduate and college topper with strong foundations in software engineering,
+automation systems, and full-stack development. I build AI tools, automation frameworks,
+interactive applications, and developer utilities with clean scalable architecture.
+I continuously upgrade my technical stack through certifications, real projects,
+and applied engineering practice.
 </p>
+</div>
 </div>
 </section>
 
-<!-- SKILLS -->
 <section>
 <h2 onclick="toggle(this)">Skills</h2>
 <div class="content">
@@ -162,7 +179,7 @@ projects, and applied engineering practice.
 <h3>Web Technologies</h3>
 <span class="bubble">HTML</span>
 <span class="bubble">CSS</span>
-<span class="bubble">Full Stack Development</span>
+<span class="bubble">Full Stack</span>
 </div>
 
 <div class="main-card">
@@ -183,7 +200,6 @@ projects, and applied engineering practice.
 </div>
 </section>
 
-<!-- EXPERIENCE -->
 <section>
 <h2 onclick="toggle(this)">Experience</h2>
 <div class="content">
@@ -191,64 +207,45 @@ projects, and applied engineering practice.
 <div class="card">
 <h3>SEO Executive — Cyberfox Solutions</h3>
 <ul>
-<li>Performed technical SEO audits and optimization</li>
-<li>Improved keyword rankings and search visibility</li>
-<li>Handled analytics tracking and performance monitoring</li>
-<li>Worked on structured metadata and content tuning</li>
+<li>Technical SEO audits & optimization</li>
+<li>Keyword ranking improvements</li>
+<li>Analytics & performance tracking</li>
+<li>Structured metadata & content tuning</li>
 </ul>
 </div>
 
 <div class="card">
 <h3>Web Developer Intern — Cyberfox Solutions</h3>
 <ul>
-<li>Built responsive frontend components</li>
-<li>Integrated backend APIs with UI workflows</li>
-<li>Optimized performance and layout behavior</li>
-<li>Worked with HTML, CSS, JavaScript stacks</li>
+<li>Responsive UI component development</li>
+<li>Backend API integration</li>
+<li>Performance optimization</li>
+<li>Cross-browser behavior fixes</li>
 </ul>
 </div>
 
 </div>
 </section>
 
-<!-- PROJECTS -->
 <section>
 <h2 onclick="toggle(this)">Projects</h2>
 <div class="content">
 
 <div class="card">
 <h3>AI Chatbot System</h3>
-<p>
-Context-aware conversational AI chatbot capable of dynamic
-response handling and multi-query interaction.
-</p>
-<p><b>Technologies:</b> Python, AI APIs, NLP Logic</p>
+<p>Context-aware conversational AI chatbot with dynamic response logic.</p>
+<p><b>Tech:</b> Python, AI APIs, NLP</p>
 </div>
 
 <div class="card">
 <h3>AI Virtual Mouse</h3>
-<p>
-Computer-vision based gesture control mouse using hand tracking
-for cursor movement and click detection.
-</p>
-<p><b>Technologies:</b> Python, OpenCV, Vision Models</p>
+<p>Gesture-controlled mouse using computer vision hand tracking.</p>
+<p><b>Tech:</b> Python, OpenCV</p>
 </div>
 
 </div>
 </section>
 
-<!-- EDUCATION -->
-<section>
-<h2 onclick="toggle(this)">Education</h2>
-<div class="content">
-<div class="card">
-<h3>B.Tech — Computer Science & Engineering</h3>
-<p>CGPA: 8.78 — College Topper</p>
-</div>
-</div>
-</section>
-
-<!-- CONTACT -->
 <section>
 <h2 onclick="toggle(this)">Contact</h2>
 <div class="content">
@@ -256,8 +253,8 @@ for cursor movement and click detection.
 <p>📞 +91 7907075183</p>
 <p>📧 rizwannowfal001@gmail.com</p>
 <p>📍 Bangalore, India</p>
-<p>💻 GitHub: https://github.com/RizwanB312</p>
-<p>🔗 LinkedIn: https://www.linkedin.com/in/rizwan-n-72955234a/</p>
+<p>💻 https://github.com/RizwanB312</p>
+<p>🔗 https://www.linkedin.com/in/rizwan-n-72955234a/</p>
 </div>
 </div>
 </section>
@@ -265,8 +262,32 @@ for cursor movement and click detection.
 <script>
 function toggle(el){
   const c = el.nextElementSibling;
-  c.style.display = (c.style.display === "block") ? "none" : "block";
+  c.style.display = c.style.display === "block" ? "none" : "block";
 }
+
+/* Mouse tilt + glow effect */
+document.querySelectorAll('.card, .main-card').forEach(card=>{
+  card.addEventListener('mousemove', e=>{
+    const r = card.getBoundingClientRect();
+    const x = e.clientX - r.left;
+    const y = e.clientY - r.top;
+    const cx = r.width/2;
+    const cy = r.height/2;
+    const dx = (x-cx)/cx;
+    const dy = (y-cy)/cy;
+
+    card.style.transform =
+      `rotateX(${ -dy*8 }deg) rotateY(${ dx*8 }deg) scale(1.02)`;
+
+    card.style.boxShadow =
+      `${-dx*20}px ${-dy*20}px 30px rgba(0,0,0,.18)`;
+  });
+
+  card.addEventListener('mouseleave', ()=>{
+    card.style.transform = "";
+    card.style.boxShadow = "0 10px 26px rgba(0,0,0,.08)";
+  });
+});
 </script>
 
 </body>
