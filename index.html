@@ -109,7 +109,7 @@ nav a:hover::after{width:100%;}
 .hero{
  padding:120px 20px 80px;
  text-align:center;
- opacity:1; /* ensure not faded */
+ background:rgba(255,255,255,0.9); /* make sure fully visible */
 }
 .hero img{
  width:170px;
@@ -129,7 +129,7 @@ nav a:hover::after{width:100%;}
 .hero h2{
  font-size:20px;
  margin-top:10px;
- opacity:.85;
+ opacity:.9;
 }
 .typing{
  font-size:22px;
@@ -139,7 +139,16 @@ nav a:hover::after{width:100%;}
 }
 
 /* ---------- sections ---------- */
-section{padding:90px 8%;}
+section{
+ padding:90px 8%;
+ opacity:0;
+ transform:translateY(60px);
+ transition:opacity .7s ease,transform .7s ease;
+}
+section.active{
+ opacity:1;
+ transform:translateY(0);
+}
 .title{
  font-size:36px;
  font-weight:800;
@@ -148,13 +157,13 @@ section{padding:90px 8%;}
 }
 .title::before{
  content:'';
- position:absolute;
  left:-20px;
  top:8px;
  width:8px;
  height:32px;
- background:#4f8cff;
  border-radius:4px;
+ position:absolute;
+ background:#4f8cff;
 }
 
 /* ---------- glass cards ---------- */
@@ -213,14 +222,13 @@ section{padding:90px 8%;}
  margin-bottom:4px;
 }
 
-/* ---------- skills nested ---------- */
+/* ---------- skills ---------- */
 .skill-main{
  background:#f6f8ff;
  border-radius:22px;
  padding:26px;
  margin-bottom:24px;
  box-shadow:inset 0 0 0 2px #e9edff;
- position:relative;
 }
 .skill-main h3{margin-bottom:16px;}
 .bubble{
@@ -232,8 +240,6 @@ section{padding:90px 8%;}
  font-size:14px;
  box-shadow:0 8px 22px rgba(0,0,0,.08);
  transition:.25s;
- position:relative;
- overflow:hidden;
 }
 .bubble:hover{
  background:#4f8cff;
@@ -251,14 +257,13 @@ section{padding:90px 8%;}
  text-decoration:none;
  font-weight:600;
  transition:.3s;
- position:relative;
 }
 .btn:hover{
  transform:translateY(-4px);
  box-shadow:0 16px 40px rgba(79,140,255,.4);
 }
 
-/* ---------- project hover overlay ---------- */
+/* ---------- projects ---------- */
 .project{
  position:relative;
  overflow:hidden;
@@ -276,34 +281,6 @@ section{padding:90px 8%;}
  transition:.4s;
 }
 .project:hover .project-overlay{transform:translateY(0);}
-
-/* ---------- reveal + v3 scroll dynamics ---------- */
-.reveal{
- opacity:0;
- transform:translateY(60px) scale(.98);
- transition:opacity .9s ease,transform .9s ease,filter .9s ease;
- filter:blur(6px);
-}
-.reveal.show{
- opacity:1;
- transform:translateY(0) scale(1);
- filter:blur(0);
-}
-
-/* fading older sections while scrolling */
-section{
- position:relative;
- transition:opacity .6s ease,transform .6s ease;
-}
-section.dimmed{
- opacity:.25;
- transform:scale(.98);
-}
-
-/* subtle parallax on cards */
-.card.parallax{
- transform:translateY(var(--offset,0px));
-}
 
 /* ---------- modal for project details ---------- */
 .modal-backdrop{
@@ -331,9 +308,7 @@ section.dimmed{
  box-shadow:0 24px 70px rgba(0,0,0,.35);
  position:relative;
 }
-.modal h3{
- margin-bottom:10px;
-}
+.modal h3{margin-bottom:10px;}
 .modal p{
  font-size:15px;
  line-height:1.7;
@@ -379,27 +354,27 @@ section.dimmed{
 </div>
 </nav>
 
-<section class="hero">
+<section class="hero active" id="top">
 <img src="https://raw.githubusercontent.com/RizwanB312/portfolio-files/main/RICHU.jpg" alt="Rizwan N">
 <h1>Rizwan N — Portfolio</h1>
 <h2>Associate Software Engineer · Full Stack Developer · Python &amp; C · AI &amp; Automation</h2>
 <div class="typing" id="typing"></div>
 </section>
 
-<section id="about" class="reveal">
+<section id="about">
 <h2 class="title">About Me</h2>
-<div class="card about parallax">
+<div class="card about">
 Automation-focused developer building AI tools, bots, testing systems, and smart web applications.  
 Specialized in Python automation, job-workflow bots, AI chat systems, and interactive utilities.  
 I focus on real-world usable systems — not toy demos — combining AI + web + scripting for productivity impact.
 </div>
 </section>
 
-<section id="experience" class="reveal">
+<section id="experience">
 <h2 class="title">Experience</h2>
 <div class="grid">
 
-<div class="card parallax">
+<div class="card">
 <div class="exp-role">
   <div>
     <h3>SEO Executive</h3>
@@ -411,12 +386,10 @@ I focus on real-world usable systems — not toy demos — combining AI + web + 
   <li>Built Python automation tools for backlink validation and SERP rank tracking.</li>
   <li>Developed a multi-page metadata crawler for technical SEO audits.</li>
   <li>Automated GA4 and Search Console reporting workflows with data scripts.</li>
-  <li>Implemented a rule-based blog SEO audit system to flag key issues.</li>
-  <li>Reduced manual SEO reporting workload through scripting and batch jobs.</li>
 </ul>
 </div>
 
-<div class="card parallax">
+<div class="card">
 <div class="exp-role">
   <div>
     <h3>Web Developer Intern</h3>
@@ -426,31 +399,35 @@ I focus on real-world usable systems — not toy demos — combining AI + web + 
 </div>
 <ul class="exp-points">
   <li>Developed and customized WordPress websites for client requirements.</li>
-  <li>Implemented responsive UI components with HTML, CSS, and JavaScript.</li>
-  <li>Configured plugins and optimized site performance prior to deployment.</li>
-  <li>Coordinated with SEO team for technical optimizations and analytics setup.</li>
+  <li>Implemented responsive UI with HTML, CSS, and JavaScript.</li>
+  <li>Configured plugins and optimized site performance before deployment.</li>
 </ul>
 </div>
 
 </div>
 </section>
 
-<section id="education" class="reveal">
+<section id="education">
 <h2 class="title">Education</h2>
-<div class="card parallax">
+<div class="card">
 <strong>B. Tech in Computer Science and Engineering</strong><br>
 College of Engineering and Management Punnapra<br>
 Alappuzha, India<br>
 2020 – 2024<br>
 CGPA: 8.78<br>
-College Topper of 2020–24 Batch
+College Topper of 2020–24 Batch<br><br>
+<strong>Higher Secondary Education (Science Stream)</strong><br>
+G.H.S.S Quilon West<br>
+Kollam, India<br>
+2018 – 2020<br>
+Percentage: 92.8% (Distinction)
 </div>
 </section>
 
-<section id="skills" class="reveal">
+<section id="skills">
 <h2 class="title">Skills</h2>
 
-<div class="skill-main parallax">
+<div class="skill-main">
 <h3>Languages</h3>
 <span class="bubble">Python</span>
 <span class="bubble">C</span>
@@ -458,7 +435,7 @@ College Topper of 2020–24 Batch
 <span class="bubble">JavaScript</span>
 </div>
 
-<div class="skill-main parallax">
+<div class="skill-main">
 <h3>Web</h3>
 <span class="bubble">HTML</span>
 <span class="bubble">CSS</span>
@@ -466,12 +443,12 @@ College Topper of 2020–24 Batch
 <span class="bubble">REST APIs</span>
 </div>
 
-<div class="skill-main parallax">
+<div class="skill-main">
 <h3>Databases</h3>
 <span class="bubble">MySQL</span>
 </div>
 
-<div class="skill-main parallax">
+<div class="skill-main">
 <h3>Additional</h3>
 <span class="bubble">Automation</span>
 <span class="bubble">Selenium</span>
@@ -482,30 +459,29 @@ College Topper of 2020–24 Batch
 
 </section>
 
-<section id="projects" class="reveal">
+<section id="projects">
 <h2 class="title">Projects</h2>
 <div class="grid">
 
-<!-- Use your actual GitHub repo links here -->
-<div class="card project parallax"
+<div class="card project"
      data-title="AI Guardian — Mental Health Chatbot"
-     data-desc="NLP-based chatbot for emotion detection and contextual responses using Python, TensorFlow, Flask, and MySQL."
-     data-link="https://github.com/RizwanB312">
+     data-desc="NLP-based mental health chatbot using Python, TensorFlow, Flask, and MySQL with intent classification and emotion detection."
+     data-link="https://github.com/RizwanB312/Mental-Health-Chatbot/blob/main/README.md">
 <h3>AI Guardian — Mental Health Chatbot</h3>
 <div class="project-overlay">Click to view details</div>
 </div>
 
-<div class="card project parallax"
+<div class="card project"
      data-title="Automated Naukri Job Scraper & Auto-Apply Bot"
-     data-desc="End-to-end Selenium automation pipeline for scraping job listings, filtering roles, and auto-submitting applications."
-     data-link="https://github.com/RizwanB312">
+     data-desc="Selenium-based bot that scrapes Naukri listings, filters roles, and auto-applies with retry logic and tracking."
+     data-link="https://github.com/RizwanB312/Naukri-bot/blob/main/README.md">
 <h3>Automated Naukri Job Scraper &amp; Auto-Apply Bot</h3>
 <div class="project-overlay">Click to view details</div>
 </div>
 
-<div class="card project parallax"
+<div class="card project"
      data-title="AI Mouse — Hand Gesture Control"
-     data-desc="Real-time hand gesture-based mouse control using OpenCV, MediaPipe, and PyAutoGUI for click, move, and scroll."
+     data-desc="Real-time hand gesture-based mouse control using OpenCV, MediaPipe, and PyAutoGUI."
      data-link="https://github.com/RizwanB312">
 <h3>AI Mouse — Hand Gesture Control</h3>
 <div class="project-overlay">Click to view details</div>
@@ -514,15 +490,15 @@ College Topper of 2020–24 Batch
 </div>
 </section>
 
-<section id="resume" class="reveal">
+<section id="resume">
 <h2 class="title">Resume</h2>
 <div class="grid">
-<div class="card parallax">
+<div class="card">
 <a class="btn" href="https://raw.githubusercontent.com/RizwanB312/portfolio-files/main/Rizwan-N-Full%20Stack%20Developer.pdf">
 Full Stack Resume
 </a>
 </div>
-<div class="card parallax">
+<div class="card">
 <a class="btn" href="https://raw.githubusercontent.com/RizwanB312/portfolio-files/main/Rizwan-N-Associate%20Software%20Engineer.pdf">
 Associate Resume
 </a>
@@ -530,19 +506,20 @@ Associate Resume
 </div>
 </section>
 
-<section id="cert" class="reveal">
+<section id="cert">
 <h2 class="title">Certifications</h2>
-<div class="card parallax">
+<div class="card">
 <strong>AI Mastery Program — Be10x</strong><br><br>
-Completed training in AI-assisted development, automation workflows, and data tools (Python with AI tools, SQL, Power BI, AI-powered web/app development, and automation platforms).<br>
+Completed training in AI-assisted development, automation workflows, and data tools.<br>
+Covered Python with AI tools, SQL, Power BI, AI-powered web/app development, and automation platforms.<br>
 Applied AI-assisted techniques for productivity, data handling, and technical workflow optimization.<br><br>
 <a class="btn" href="https://raw.githubusercontent.com/RizwanB312/portfolio-files/main/Be10xCertificate.pdf">View Certificate</a>
 </div>
 </section>
 
-<section id="contact" class="reveal">
+<section id="contact">
 <h2 class="title">Contact</h2>
-<div class="card parallax">
+<div class="card">
 📞 +91 7907075183<br>
 📧 rizwannowfal001@gmail.com<br>
 📍 Bangalore, India<br>
@@ -557,7 +534,7 @@ LinkedIn: <a href="https://www.linkedin.com/in/rizwan-n-72955234a">linkedin.com/
     <button class="modal-close" id="modalClose">&times;</button>
     <h3 id="modalTitle"></h3>
     <p id="modalDesc"></p>
-    <a id="modalLink" href="#">View on GitHub</a>
+    <a id="modalLink" href="#">View project</a>
   </div>
 </div>
 
@@ -576,40 +553,36 @@ window.addEventListener('scroll',()=>{
  document.getElementById('progress').style.width=sc+'%';
 });
 
-// reveal + dim old sections + parallax
+// show only one section at a time (new info appears, old disappears)
 const sections=[...document.querySelectorAll('section')];
-const revealEls=document.querySelectorAll('.reveal');
-const obs=new IntersectionObserver(entries=>{
- entries.forEach(entry=>{
-   if(entry.isIntersecting){
-     entry.target.classList.add('show');
-   }
- });
-},{threshold:0.2});
-revealEls.forEach(el=>obs.observe(el));
-
-window.addEventListener('scroll',()=>{
+function updateActiveSection(){
  const viewportMid=window.innerHeight/2;
+ let closest=null;
+ let closestDist=Infinity;
+
  sections.forEach(sec=>{
    const rect=sec.getBoundingClientRect();
    const secMid=rect.top+rect.height/2;
-   const distance=Math.abs(secMid-viewportMid);
-
-   if(secMid<viewportMid-80){
-     sec.classList.add('dimmed');
-   }else{
-     sec.classList.remove('dimmed');
+   const dist=Math.abs(secMid-viewportMid);
+   if(dist<closestDist){
+     closestDist=dist;
+     closest=sec;
    }
-
-   const offset=Math.min(40,distance/15);
-   sec.querySelectorAll('.parallax').forEach(card=>{
-     card.style.setProperty('--offset', (rect.top < viewportMid ? offset : -offset) + 'px');
-   });
  });
-});
 
-// typing
-const text="AI • Automation • Full Stack • Testing";
+ sections.forEach(sec=>{
+   if(sec===closest){
+     sec.classList.add('active');
+   }else{
+     sec.classList.remove('active');
+   }
+ });
+}
+updateActiveSection();
+window.addEventListener('scroll',updateActiveSection);
+
+// typing (just keep role keywords if you want or clear it)
+const text="";
 let i=0;
 function type(){
  if(i<text.length){
