@@ -109,7 +109,7 @@ nav a:hover::after{width:100%;}
 .hero{
  padding:120px 20px 80px;
  text-align:center;
- background:#ffffff; /* solid */
+ background:#ffffff;
 }
 .hero img{
  width:170px;
@@ -139,7 +139,6 @@ nav a:hover::after{width:100%;}
 }
 
 /* ---------- sections ---------- */
-/* only one section visible at a time */
 section{
  padding:90px 8%;
  opacity:0;
@@ -150,7 +149,7 @@ section.active{
  opacity:1;
  transform:translateY(0);
 }
-section.hero{opacity:1;transform:none;} /* hero always visible initially */
+section.hero{opacity:1;transform:none;}
 
 .title{
  font-size:36px;
@@ -222,6 +221,28 @@ section.hero{opacity:1;transform:none;} /* hero always visible initially */
 .exp-points li{
  margin-left:18px;
  margin-bottom:4px;
+}
+
+/* ---------- education layout ---------- */
+.edu-role{
+ margin-bottom:6px;
+}
+.edu-title{
+ font-weight:700;
+ font-size:16px;
+}
+.edu-inst{
+ font-weight:600;
+ font-size:15px;
+}
+.edu-meta{
+ font-size:14px;
+ opacity:.8;
+ margin-top:2px;
+}
+.edu-detail{
+ font-size:14px;
+ margin-top:6px;
 }
 
 /* ---------- skills ---------- */
@@ -411,24 +432,40 @@ I focus on real-world usable systems — not toy demos — combining AI + web + 
 
 <section id="education">
 <h2 class="title">Education</h2>
+<div class="grid">
+
 <div class="card">
-<strong>B. Tech in Computer Science and Engineering</strong><br>
-College of Engineering and Management Punnapra<br>
-Alappuzha, India<br>
-2020 – 2024<br>
-CGPA: 8.78<br>
-College Topper of 2020–24 Batch<br><br>
+  <div class="edu-role">
+    <div class="edu-title">B. Tech in Computer Science and Engineering</div>
+    <div class="edu-inst">College of Engineering and Management Punnapra</div>
+    <div class="edu-meta">Alappuzha, India · 2020 – 2024</div>
+  </div>
+  <div class="edu-detail">
+    CGPA: 8.78<br>
+    College Topper of 2020–24 Batch
+  </div>
+</div>
 
-<strong>Higher Secondary Education (Science Stream)</strong><br>
-G.H.S.S Quilon West<br>
-Kollam, India<br>
-2018 – 2020<br>
-Percentage: 92.8% (Distinction)<br><br>
+<div class="card">
+  <div class="edu-role">
+    <div class="edu-title">Higher Secondary Education (Science Stream)</div>
+    <div class="edu-inst">G.H.S.S Quilon West</div>
+    <div class="edu-meta">Kollam, India · 2018 – 2020</div>
+  </div>
+  <div class="edu-detail">
+    Percentage: 92.8% (Distinction)
+  </div>
+  <hr style="margin:18px 0;border:none;border-top:1px solid #e5e7ff;">
+  <div class="edu-role">
+    <div class="edu-title">Secondary Education (10th Grade)</div>
+    <div class="edu-inst">Trinity Lyceum</div>
+    <div class="edu-meta">Kollam, India</div>
+  </div>
+  <div class="edu-detail">
+    Percentage: 90%
+  </div>
+</div>
 
-<strong>Secondary Education (10th Grade)</strong><br>
-TRINITY LYCEUM<br>
-Kollam, India<br>
-Percentage: 90%
 </div>
 </section>
 
@@ -589,7 +626,7 @@ function updateActiveSection(){
 updateActiveSection();
 window.addEventListener('scroll',updateActiveSection);
 
-// typing (disabled)
+// typing disabled
 const text="";
 let i=0;
 function type(){
