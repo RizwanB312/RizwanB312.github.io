@@ -95,9 +95,9 @@ nav{
  z-index:100;
  box-shadow:0 12px 40px rgba(0,0,0,.75);
  border-bottom:1px solid rgba(255,255,255,.06);
- white-space: nowrap; /* Ensures nav content stays on one line */
+ white-space: nowrap; 
 }
-/* Futuristic Brand Color for Name */
+
 nav b{
  font-weight:800;
  letter-spacing:.08em;
@@ -188,7 +188,6 @@ section.hero{opacity:1;transform:none;}
  position:relative;
  text-transform:uppercase;
  letter-spacing:.16em;
- /* Futuristic Gradient for All Section Titles */
  background: linear-gradient(90deg, #00f2ff, #8b5bff, #ff007a);
  -webkit-background-clip: text;
  -webkit-text-fill-color: transparent;
@@ -227,7 +226,6 @@ section.hero{opacity:1;transform:none;}
 .card:hover::before{transform:translateX(120%);}
 .card:hover{transform:translateY(-10px) scale(1.02); border-color: rgba(0,242,255,0.3);}
 
-/* Card Headings */
 .card h3 {
  color: #00f2ff;
  text-shadow: 0 0 10px rgba(0, 242, 255, 0.2);
@@ -279,7 +277,7 @@ section.hero{opacity:1;transform:none;}
  font-size:16px;
  text-transform:uppercase;
  letter-spacing:.09em;
- color:#00f2ff; /* Futuristic Cyan */
+ color:#00f2ff; 
  text-shadow: 0 0 8px rgba(0, 242, 255, 0.2);
 }
 .edu-inst{
@@ -313,7 +311,7 @@ section.hero{opacity:1;transform:none;}
  text-transform:uppercase;
  letter-spacing:.12em;
  font-size:14px;
- color:#00f2ff; /* Futuristic Cyan */
+ color:#00f2ff; 
 }
 .bubble{
  display:inline-block;
@@ -403,7 +401,7 @@ section.hero{opacity:1;transform:none;}
 }
 .modal h3{
  margin-bottom:10px;
- color:#00f2ff; /* Futuristic Cyan */
+ color:#00f2ff; 
 }
 .modal p{
  font-size:14px;
@@ -667,6 +665,10 @@ function updateActiveSection(){
  const viewportMid=window.innerHeight/2;
  let closest=null;
  let closestDist=Infinity;
+
+ // FIX: Check if we are at the bottom of the page
+ const isAtBottom = (window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50;
+
  sections.forEach(sec=>{
    const rect=sec.getBoundingClientRect();
    const secMid=rect.top+rect.height/2;
@@ -676,11 +678,18 @@ function updateActiveSection(){
      closest=sec;
    }
  });
+
  sections.forEach(sec=>{
-   if(sec===closest){
-     sec.classList.add('active');
-   }else if(!sec.classList.contains('hero')){
-     sec.classList.remove('active');
+   // If at bottom, force the last section (contact) to be active
+   if(isAtBottom) {
+      if(sec.id === 'contact') sec.classList.add('active');
+      else if(!sec.classList.contains('hero')) sec.classList.remove('active');
+   } else {
+      if(sec===closest){
+        sec.classList.add('active');
+      }else if(!sec.classList.contains('hero')){
+        sec.classList.remove('active');
+      }
    }
  });
 }
