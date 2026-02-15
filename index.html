@@ -16,7 +16,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Animated gradient hero */
+/* HERO */
 .hero {
   text-align: center;
   padding: 60px 20px;
@@ -49,24 +49,6 @@ body {
 .hero h1 { margin: 10px 0 5px; font-size: 34px; }
 .hero p { font-size: 18px; opacity: .95; }
 
-/* Buttons */
-.buttons a {
-  display: inline-block;
-  margin: 8px;
-  padding: 11px 18px;
-  background: white;
-  color: #111827;
-  text-decoration: none;
-  border-radius: 12px;
-  font-weight: bold;
-  transition: all .25s;
-}
-
-.buttons a:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 22px rgba(0,0,0,.18);
-}
-
 /* Section headers */
 h2 {
   cursor: pointer;
@@ -94,7 +76,7 @@ h2:hover { transform: scale(1.02); }
   to {opacity:1; transform:translateY(0);}
 }
 
-/* Cards with tilt */
+/* Cards */
 .card, .main-card {
   background: white;
   padding: 20px;
@@ -107,6 +89,24 @@ h2:hover { transform: scale(1.02); }
 
 .main-card { border-left: 6px solid #22c55e; }
 .card { border-top: 5px solid #0ea5e9; }
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 16px;
+  background: linear-gradient(120deg,#0ea5e9,#22c55e);
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: bold;
+  transition: .25s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(0,0,0,.18);
+}
 
 /* About text */
 .about-text {
@@ -135,34 +135,73 @@ h2:hover { transform: scale(1.02); }
 
 <body>
 
+<!-- HERO -->
 <section class="hero">
 <img src="https://raw.githubusercontent.com/RizwanB312/portfolio-files/main/RICHU.jpg" class="profile">
-
 <h1>Rizwan N Portfolio</h1>
 <p>Associate Software Engineer • Full Stack Developer • AI Builder</p>
-
-<div class="buttons">
-<a target="_blank" href="https://raw.githubusercontent.com/RizwanB312/portfolio-files/main/Rizwan-N-Associate%20Software%20Engineer.pdf">Associate Resume</a>
-<a target="_blank" href="https://raw.githubusercontent.com/RizwanB312/portfolio-files/main/Rizwan-N-Full%20Stack%20Developer.pdf">Full Stack Resume</a>
-<a target="_blank" href="https://raw.githubusercontent.com/RizwanB312/portfolio-files/main/Be10xCertificate.pdf">BE10X Certificate</a>
-</div>
 </section>
 
+<!-- ABOUT -->
 <section>
 <h2 onclick="toggle(this)">About Me</h2>
 <div class="content">
 <div class="card">
 <p class="about-text">
-B.Tech Computer Science graduate and college topper with strong foundations in software engineering,
-automation systems, and full-stack development. I build AI tools, automation frameworks,
-interactive applications, and developer utilities with clean scalable architecture.
-I continuously upgrade my technical stack through certifications, real projects,
-and applied engineering practice.
+B.Tech Computer Science graduate and college topper with strong foundations in
+software engineering, AI systems, automation tools, and full-stack development.
+I build intelligent bots, developer automation utilities, and interactive
+applications focused on scalable logic and production-ready engineering.
 </p>
 </div>
 </div>
 </section>
 
+<!-- RESUME -->
+<section>
+<h2 onclick="toggle(this)">Resumes</h2>
+<div class="content">
+
+<div class="card">
+<h3>Associate Software Engineer Resume</h3>
+<a class="btn" target="_blank"
+href="https://raw.githubusercontent.com/RizwanB312/portfolio-files/main/Rizwan-N-Associate%20Software%20Engineer.pdf">
+View Resume
+</a>
+</div>
+
+<div class="card">
+<h3>Full Stack Developer Resume</h3>
+<a class="btn" target="_blank"
+href="https://raw.githubusercontent.com/RizwanB312/portfolio-files/main/Rizwan-N-Full%20Stack%20Developer.pdf">
+View Resume
+</a>
+</div>
+
+</div>
+</section>
+
+<!-- CERTIFICATION -->
+<section>
+<h2 onclick="toggle(this)">Certifications</h2>
+<div class="content">
+
+<div class="card">
+<h3>AI Mastery Certification</h3>
+<p>
+Completed intensive AI Mastery program covering practical AI tools,
+prompt engineering, workflow automation, and applied AI productivity systems.
+</p>
+<a class="btn" target="_blank"
+href="https://raw.githubusercontent.com/RizwanB312/portfolio-files/main/Be10xCertificate.pdf">
+View BE10X Certificate
+</a>
+</div>
+
+</div>
+</section>
+
+<!-- SKILLS -->
 <section>
 <h2 onclick="toggle(this)">Skills</h2>
 <div class="content">
@@ -185,67 +224,74 @@ and applied engineering practice.
 <div class="main-card">
 <h3>Databases</h3>
 <span class="bubble">SQL Basics</span>
-<span class="bubble">Data Handling</span>
 </div>
 
 <div class="main-card">
 <h3>Additional Skills</h3>
 <span class="bubble">Automation</span>
 <span class="bubble">Web Scraping</span>
-<span class="bubble">SEO Analytics</span>
+<span class="bubble">SEO</span>
 <span class="bubble">Git</span>
-<span class="bubble">Problem Solving</span>
 </div>
 
 </div>
 </section>
 
+<!-- EXPERIENCE -->
 <section>
 <h2 onclick="toggle(this)">Experience</h2>
 <div class="content">
 
 <div class="card">
-<h3>SEO Executive — Cyberfox Solutions</h3>
+<h3>SEO Executive</h3>
 <ul>
 <li>Technical SEO audits & optimization</li>
-<li>Keyword ranking improvements</li>
+<li>Ranking & visibility improvements</li>
 <li>Analytics & performance tracking</li>
-<li>Structured metadata & content tuning</li>
+<li>Metadata & content structuring</li>
 </ul>
 </div>
 
 <div class="card">
-<h3>Web Developer Intern — Cyberfox Solutions</h3>
+<h3>Web Developer Intern</h3>
 <ul>
-<li>Responsive UI component development</li>
-<li>Backend API integration</li>
+<li>Responsive UI component building</li>
+<li>API integration</li>
 <li>Performance optimization</li>
-<li>Cross-browser behavior fixes</li>
+<li>Cross-browser fixes</li>
 </ul>
 </div>
 
 </div>
 </section>
 
+<!-- PROJECTS -->
 <section>
 <h2 onclick="toggle(this)">Projects</h2>
 <div class="content">
 
 <div class="card">
+<h3>Naukri Job Automation Bot</h3>
+<p>Auto-applies to eligible jobs and filters external listings.</p>
+<p><b>Tech:</b> Python, Automation, Web Scraping</p>
+</div>
+
+<div class="card">
 <h3>AI Chatbot System</h3>
-<p>Context-aware conversational AI chatbot with dynamic response logic.</p>
-<p><b>Tech:</b> Python, AI APIs, NLP</p>
+<p>Context-aware conversational AI assistant.</p>
+<p><b>Tech:</b> Python, AI APIs</p>
 </div>
 
 <div class="card">
 <h3>AI Virtual Mouse</h3>
-<p>Gesture-controlled mouse using computer vision hand tracking.</p>
+<p>Gesture-controlled cursor system.</p>
 <p><b>Tech:</b> Python, OpenCV</p>
 </div>
 
 </div>
 </section>
 
+<!-- CONTACT -->
 <section>
 <h2 onclick="toggle(this)">Contact</h2>
 <div class="content">
@@ -265,27 +311,19 @@ function toggle(el){
   c.style.display = c.style.display === "block" ? "none" : "block";
 }
 
-/* Mouse tilt + glow effect */
 document.querySelectorAll('.card, .main-card').forEach(card=>{
   card.addEventListener('mousemove', e=>{
     const r = card.getBoundingClientRect();
-    const x = e.clientX - r.left;
-    const y = e.clientY - r.top;
-    const cx = r.width/2;
-    const cy = r.height/2;
-    const dx = (x-cx)/cx;
-    const dy = (y-cy)/cy;
-
+    const dx = (e.clientX-r.left-r.width/2)/(r.width/2);
+    const dy = (e.clientY-r.top-r.height/2)/(r.height/2);
     card.style.transform =
       `rotateX(${ -dy*8 }deg) rotateY(${ dx*8 }deg) scale(1.02)`;
-
     card.style.boxShadow =
       `${-dx*20}px ${-dy*20}px 30px rgba(0,0,0,.18)`;
   });
-
   card.addEventListener('mouseleave', ()=>{
-    card.style.transform = "";
-    card.style.boxShadow = "0 10px 26px rgba(0,0,0,.08)";
+    card.style.transform="";
+    card.style.boxShadow="0 10px 26px rgba(0,0,0,.08)";
   });
 });
 </script>
