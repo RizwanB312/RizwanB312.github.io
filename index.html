@@ -109,6 +109,7 @@ nav a:hover::after{width:100%;}
 .hero{
  padding:120px 20px 80px;
  text-align:center;
+ opacity:1; /* ensure not faded */
 }
 .hero img{
  width:170px;
@@ -118,16 +119,21 @@ nav a:hover::after{width:100%;}
 }
 .hero img:hover{transform:scale(1.1) rotate(2deg);}
 .hero h1{
- font-size:54px;
+ font-size:42px;
  font-weight:800;
  margin-top:25px;
  background:linear-gradient(90deg,#4f8cff,#00ffd0);
  -webkit-background-clip:text;
  -webkit-text-fill-color:transparent;
 }
+.hero h2{
+ font-size:20px;
+ margin-top:10px;
+ opacity:.85;
+}
 .typing{
  font-size:22px;
- margin-top:10px;
+ margin-top:16px;
  opacity:.8;
  height:30px;
 }
@@ -256,6 +262,7 @@ section{padding:90px 8%;}
 .project{
  position:relative;
  overflow:hidden;
+ cursor:pointer;
 }
 .project-overlay{
  position:absolute;
@@ -297,6 +304,56 @@ section.dimmed{
 .card.parallax{
  transform:translateY(var(--offset,0px));
 }
+
+/* ---------- modal for project details ---------- */
+.modal-backdrop{
+ position:fixed;
+ inset:0;
+ background:rgba(0,0,0,.45);
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ z-index:1000;
+ opacity:0;
+ pointer-events:none;
+ transition:opacity .25s ease;
+}
+.modal-backdrop.show{
+ opacity:1;
+ pointer-events:auto;
+}
+.modal{
+ background:#ffffff;
+ border-radius:22px;
+ max-width:520px;
+ width:90%;
+ padding:24px 26px 22px;
+ box-shadow:0 24px 70px rgba(0,0,0,.35);
+ position:relative;
+}
+.modal h3{
+ margin-bottom:10px;
+}
+.modal p{
+ font-size:15px;
+ line-height:1.7;
+ margin-bottom:18px;
+}
+.modal a{
+ color:#4f8cff;
+ font-weight:600;
+ text-decoration:none;
+}
+.modal a:hover{text-decoration:underline;}
+.modal-close{
+ position:absolute;
+ top:10px;
+ right:14px;
+ border:none;
+ background:transparent;
+ font-size:22px;
+ cursor:pointer;
+}
 </style>
 </head>
 <body>
@@ -324,7 +381,8 @@ section.dimmed{
 
 <section class="hero">
 <img src="https://raw.githubusercontent.com/RizwanB312/portfolio-files/main/RICHU.jpg" alt="Rizwan N">
-<h1>Associate Software Engineer</h1>
+<h1>Rizwan N — Portfolio</h1>
+<h2>Associate Software Engineer · Full Stack Developer · Python &amp; C · AI &amp; Automation</h2>
 <div class="typing" id="typing"></div>
 </section>
 
@@ -350,12 +408,11 @@ I focus on real-world usable systems — not toy demos — combining AI + web + 
   <div class="exp-meta">04/2025 – Present</div>
 </div>
 <ul class="exp-points">
-  <li>Built Python automation tools for backlink validation and SERP rank tracking to keep SEO performance accurate and up to date.</li>
-  <li>Developed a multi-page metadata crawler for large-scale technical SEO audits across client domains.</li>
-  <li>Automated GA4 and Google Search Console reporting workflows using data processing scripts and scheduled jobs.</li>
-  <li>Implemented a rule-based blog SEO audit system to flag missing tags, thin content, and internal linking issues.</li>
-  <li>Reduced manual SEO reporting workload through scripting, batch processing, and reusable Python utilities.</li>
-  <li>Generated structured SEO performance datasets that fed into dashboards and optimization decisions for clients.</li>
+  <li>Built Python automation tools for backlink validation and SERP rank tracking.</li>
+  <li>Developed a multi-page metadata crawler for technical SEO audits.</li>
+  <li>Automated GA4 and Search Console reporting workflows with data scripts.</li>
+  <li>Implemented a rule-based blog SEO audit system to flag key issues.</li>
+  <li>Reduced manual SEO reporting workload through scripting and batch jobs.</li>
 </ul>
 </div>
 
@@ -368,11 +425,10 @@ I focus on real-world usable systems — not toy demos — combining AI + web + 
   <div class="exp-meta">08/2024 – 02/2025</div>
 </div>
 <ul class="exp-points">
-  <li>Developed and customized WordPress websites based on detailed client functional requirements.</li>
-  <li>Implemented responsive UI components using HTML, CSS, and JavaScript to ensure mobile-friendly layouts.</li>
-  <li>Configured plugins, optimized assets, and improved site performance before deployment.</li>
-  <li>Prepared sites for launch with SEO-friendly structures, basic security hardening, and analytics hooks.</li>
-  <li>Coordinated with the SEO team to implement technical optimizations and analytics integrations using GA4 and Search Console.</li>
+  <li>Developed and customized WordPress websites for client requirements.</li>
+  <li>Implemented responsive UI components with HTML, CSS, and JavaScript.</li>
+  <li>Configured plugins and optimized site performance prior to deployment.</li>
+  <li>Coordinated with SEO team for technical optimizations and analytics setup.</li>
 </ul>
 </div>
 
@@ -383,8 +439,11 @@ I focus on real-world usable systems — not toy demos — combining AI + web + 
 <h2 class="title">Education</h2>
 <div class="card parallax">
 <strong>B. Tech in Computer Science and Engineering</strong><br>
-College of Engineering and Management Punnapra · Alappuzha, India<br>
-2020 – 2024 · CGPA: 8.78 · College Topper of 2020–24 Batch
+College of Engineering and Management Punnapra<br>
+Alappuzha, India<br>
+2020 – 2024<br>
+CGPA: 8.78<br>
+College Topper of 2020–24 Batch
 </div>
 </section>
 
@@ -417,7 +476,7 @@ College of Engineering and Management Punnapra · Alappuzha, India<br>
 <span class="bubble">Automation</span>
 <span class="bubble">Selenium</span>
 <span class="bubble">Debugging</span>
-<span class="bubble">Git & GitHub</span>
+<span class="bubble">Git &amp; GitHub</span>
 <span class="bubble">VS Code</span>
 </div>
 
@@ -427,19 +486,29 @@ College of Engineering and Management Punnapra · Alappuzha, India<br>
 <h2 class="title">Projects</h2>
 <div class="grid">
 
-<div class="card project parallax">
+<!-- Use your actual GitHub repo links here -->
+<div class="card project parallax"
+     data-title="AI Guardian — Mental Health Chatbot"
+     data-desc="NLP-based chatbot for emotion detection and contextual responses using Python, TensorFlow, Flask, and MySQL."
+     data-link="https://github.com/RizwanB312">
 <h3>AI Guardian — Mental Health Chatbot</h3>
-<div class="project-overlay">NLP-based emotion-aware chatbot built with Python, TensorFlow, Flask, and MySQL.</div>
+<div class="project-overlay">Click to view details</div>
 </div>
 
-<div class="card project parallax">
-<h3>Automated Naukri Job Scraper & Auto-Apply Bot</h3>
-<div class="project-overlay">End-to-end Selenium automation for scraping, filtering, and auto-applying to jobs.</div>
+<div class="card project parallax"
+     data-title="Automated Naukri Job Scraper & Auto-Apply Bot"
+     data-desc="End-to-end Selenium automation pipeline for scraping job listings, filtering roles, and auto-submitting applications."
+     data-link="https://github.com/RizwanB312">
+<h3>Automated Naukri Job Scraper &amp; Auto-Apply Bot</h3>
+<div class="project-overlay">Click to view details</div>
 </div>
 
-<div class="card project parallax">
+<div class="card project parallax"
+     data-title="AI Mouse — Hand Gesture Control"
+     data-desc="Real-time hand gesture-based mouse control using OpenCV, MediaPipe, and PyAutoGUI for click, move, and scroll."
+     data-link="https://github.com/RizwanB312">
 <h3>AI Mouse — Hand Gesture Control</h3>
-<div class="project-overlay">Real-time gesture-based cursor control using OpenCV and MediaPipe.</div>
+<div class="project-overlay">Click to view details</div>
 </div>
 
 </div>
@@ -449,12 +518,12 @@ College of Engineering and Management Punnapra · Alappuzha, India<br>
 <h2 class="title">Resume</h2>
 <div class="grid">
 <div class="card parallax">
-<a class="btn" href="https://raw.githubusercontent.com/RizwanB312/portfolio-files/main/Rizwan-N-Full%20Stack%20Developer.pdf" target="_blank">
+<a class="btn" href="https://raw.githubusercontent.com/RizwanB312/portfolio-files/main/Rizwan-N-Full%20Stack%20Developer.pdf">
 Full Stack Resume
 </a>
 </div>
 <div class="card parallax">
-<a class="btn" href="https://raw.githubusercontent.com/RizwanB312/portfolio-files/main/Rizwan-N-Associate%20Software%20Engineer.pdf" target="_blank">
+<a class="btn" href="https://raw.githubusercontent.com/RizwanB312/portfolio-files/main/Rizwan-N-Associate%20Software%20Engineer.pdf">
 Associate Resume
 </a>
 </div>
@@ -465,9 +534,9 @@ Associate Resume
 <h2 class="title">Certifications</h2>
 <div class="card parallax">
 <strong>AI Mastery Program — Be10x</strong><br><br>
-Completed structured training in AI-assisted development, automation workflows, and data tools (Python with AI tools, SQL, Power BI, AI-powered web/app development, and automation platforms).<br>
+Completed training in AI-assisted development, automation workflows, and data tools (Python with AI tools, SQL, Power BI, AI-powered web/app development, and automation platforms).<br>
 Applied AI-assisted techniques for productivity, data handling, and technical workflow optimization.<br><br>
-<a class="btn" href="https://raw.githubusercontent.com/RizwanB312/portfolio-files/main/Be10xCertificate.pdf" target="_blank">View Certificate</a>
+<a class="btn" href="https://raw.githubusercontent.com/RizwanB312/portfolio-files/main/Be10xCertificate.pdf">View Certificate</a>
 </div>
 </section>
 
@@ -477,10 +546,20 @@ Applied AI-assisted techniques for productivity, data handling, and technical wo
 📞 +91 7907075183<br>
 📧 rizwannowfal001@gmail.com<br>
 📍 Bangalore, India<br>
-GitHub: <a href="https://github.com/RizwanB312" target="_blank">RizwanB312</a><br>
-LinkedIn: <a href="https://www.linkedin.com/in/rizwan-n-72955234a" target="_blank">linkedin.com/in/rizwan-n-72955234a</a>
+GitHub: <a href="https://github.com/RizwanB312">RizwanB312</a><br>
+LinkedIn: <a href="https://www.linkedin.com/in/rizwan-n-72955234a">linkedin.com/in/rizwan-n-72955234a</a>
 </div>
 </section>
+
+<!-- modal -->
+<div class="modal-backdrop" id="projectModal">
+  <div class="modal">
+    <button class="modal-close" id="modalClose">&times;</button>
+    <h3 id="modalTitle"></h3>
+    <p id="modalDesc"></p>
+    <a id="modalLink" href="#">View on GitHub</a>
+  </div>
+</div>
 
 <script>
 // spotlight
@@ -511,19 +590,17 @@ revealEls.forEach(el=>obs.observe(el));
 
 window.addEventListener('scroll',()=>{
  const viewportMid=window.innerHeight/2;
- sections.forEach((sec,idx)=>{
+ sections.forEach(sec=>{
    const rect=sec.getBoundingClientRect();
    const secMid=rect.top+rect.height/2;
    const distance=Math.abs(secMid-viewportMid);
 
-   // dim older sections
    if(secMid<viewportMid-80){
      sec.classList.add('dimmed');
    }else{
      sec.classList.remove('dimmed');
    }
 
-   // parallax on cards inside this section
    const offset=Math.min(40,distance/15);
    sec.querySelectorAll('.parallax').forEach(card=>{
      card.style.setProperty('--offset', (rect.top < viewportMid ? offset : -offset) + 'px');
@@ -541,6 +618,27 @@ function type(){
  }
 }
 type();
+
+// project modal
+const modal=document.getElementById('projectModal');
+const modalTitle=document.getElementById('modalTitle');
+const modalDesc=document.getElementById('modalDesc');
+const modalLink=document.getElementById('modalLink');
+const modalClose=document.getElementById('modalClose');
+
+document.querySelectorAll('.project').forEach(card=>{
+ card.addEventListener('click',()=>{
+   modalTitle.textContent=card.dataset.title;
+   modalDesc.textContent=card.dataset.desc;
+   modalLink.href=card.dataset.link;
+   modal.classList.add('show');
+ });
+});
+
+modalClose.addEventListener('click',()=>modal.classList.remove('show'));
+modal.addEventListener('click',e=>{
+ if(e.target===modal){modal.classList.remove('show');}
+});
 </script>
 
 </body>
