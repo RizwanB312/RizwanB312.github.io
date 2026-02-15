@@ -9,21 +9,9 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif;scroll-behavior:smooth;}
-body{
- background:#ffffff;
- color:#111;<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Rizwan N — Portfolio</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
-
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif;scroll-behavior:smooth;}
 body{
- background:#05060a;
+ background:#020408; /* Deeper midnight black for tech vibe */
  color:#f5f5f7;
  overflow-x:hidden;
 }
@@ -34,43 +22,52 @@ body{
  top:0;
  left:0;
  height:4px;
- background:linear-gradient(90deg,#8b5bff,#ff007a);
+ background:linear-gradient(90deg,#00f2ff,#8b5bff);
  width:0%;
  z-index:9999;
 }
 
-/* ---------- animated gradient bg ---------- */
+/* ---------- futuristic grid bg ---------- */
 .bg{
  position:fixed;
  inset:0;
  z-index:-2;
- background:radial-gradient(circle at 0 0,#2b1a45 0,#05060a 45%,#05060a 100%);
- background-size:200% 200%;
- animation:bgmove 18s infinite linear;
-}
-@keyframes bgmove{
- 0%{background-position:0 0}
- 100%{background-position:200% 200%}
+ /* Subtle technological grid overlay */
+ background-image: 
+    linear-gradient(rgba(139, 91, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(139, 91, 255, 0.05) 1px, transparent 1px),
+    radial-gradient(circle at 50% 50%, #0d1117 0%, #020408 100%);
+ background-size: 50px 50px, 50px 50px, 100% 100%;
+ animation: bgmove 60s infinite linear;
 }
 
-/* ---------- floating shapes ---------- */
+@keyframes bgmove{
+ 0%{background-position:0 0, 0 0, 0 0}
+ 100%{background-position:50px 50px, 50px 50px, 0 0}
+}
+
+/* ---------- neon tech shapes ---------- */
 .shape{
  position:fixed;
- width:220px;
- height:220px;
- border-radius:40px;
- filter:blur(40px);
- opacity:.18;
+ width:350px;
+ height:350px;
+ border-radius:50%;
+ filter:blur(80px);
+ opacity:.12;
  z-index:-1;
  animation:float 14s infinite linear;
 }
-.s1{background:#8b5bff; top:10%; left:5%;}
-.s2{background:#ff007a; top:70%; left:10%; animation-duration:20s;}
-.s3{background:#ffb347; top:30%; right:5%; animation-duration:18s;}
+/* Cyan tech glow */
+.s1{background:#00f2ff; top:-5%; left:-5%;}
+/* Purple/Magenta tech glow */
+.s2{background:#7000ff; bottom:10%; right:5%; animation-duration:20s;}
+/* Subtle accent glow */
+.s3{background:#ff007a; top:30%; left:20%; animation-duration:18s; opacity: .06;}
+
 @keyframes float{
- 0%{transform:translateY(0) rotate(0)}
- 50%{transform:translateY(-80px) rotate(180deg)}
- 100%{transform:translateY(0) rotate(360deg)}
+ 0%{transform:translate(0,0) rotate(0)}
+ 50%{transform:translate(40px, 60px) rotate(180deg)}
+ 100%{transform:translate(0,0) rotate(360deg)}
 }
 
 /* ---------- cursor spotlight ---------- */
@@ -89,7 +86,7 @@ body{
 nav{
  position:sticky;
  top:0;
- background:rgba(5,6,10,.92);
+ background:rgba(2,4,8,.92);
  backdrop-filter:blur(18px);
  display:flex;
  justify-content:space-between;
@@ -117,7 +114,7 @@ nav a::after{
  bottom:-6px;
  height:2px;
  width:0%;
- background:linear-gradient(90deg,#8b5bff,#ff007a);
+ background:linear-gradient(90deg,#00f2ff,#8b5bff);
  transition:.3s;
 }
 nav a:hover::after{width:100%;}
@@ -140,7 +137,7 @@ nav a:hover::after{width:100%;}
  font-size:42px;
  font-weight:800;
  margin-top:25px;
- background:linear-gradient(90deg,#ffb347,#ff007a);
+ background:linear-gradient(90deg,#00f2ff,#ff007a);
  -webkit-background-clip:text;
  -webkit-text-fill-color:transparent;
  text-transform:uppercase;
@@ -191,12 +188,12 @@ section.hero{opacity:1;transform:none;}
  height:32px;
  border-radius:4px;
  position:absolute;
- background:linear-gradient(180deg,#8b5bff,#ff007a);
+ background:linear-gradient(180deg,#00f2ff,#8b5bff);
 }
 
 /* ---------- glass cards ---------- */
 .card{
- background:radial-gradient(circle at top left,rgba(255,255,255,.10),rgba(7,8,15,.96));
+ background:radial-gradient(circle at top left,rgba(255,255,255,.05),rgba(7,8,15,.96));
  border-radius:24px;
  padding:32px;
  box-shadow:0 25px 70px rgba(0,0,0,.85);
@@ -209,12 +206,12 @@ section.hero{opacity:1;transform:none;}
  content:'';
  position:absolute;
  inset:0;
- background:linear-gradient(120deg,transparent,rgba(255,255,255,.18),transparent);
+ background:linear-gradient(120deg,transparent,rgba(255,255,255,.12),transparent);
  transform:translateX(-120%);
  transition:.6s;
 }
 .card:hover::before{transform:translateX(120%);}
-.card:hover{transform:translateY(-10px) scale(1.02);}
+.card:hover{transform:translateY(-10px) scale(1.02); border-color: rgba(0,242,255,0.3);}
 
 /* ---------- grid ---------- */
 .grid{
@@ -283,7 +280,7 @@ section.hero{opacity:1;transform:none;}
 
 /* ---------- skills ---------- */
 .skill-main{
- background:radial-gradient(circle at top left,rgba(255,255,255,.08),rgba(7,8,15,.96));
+ background:radial-gradient(circle at top left,rgba(255,255,255,.06),rgba(7,8,15,.96));
  border-radius:22px;
  padding:26px;
  margin-bottom:24px;
@@ -310,7 +307,7 @@ section.hero{opacity:1;transform:none;}
  border:1px solid rgba(255,255,255,.12);
 }
 .bubble:hover{
- background:linear-gradient(90deg,#8b5bff,#ff007a);
+ background:linear-gradient(90deg,#00f2ff,#8b5bff);
  color:#fff;
  transform:scale(1.1);
 }
@@ -320,7 +317,7 @@ section.hero{opacity:1;transform:none;}
  display:inline-block;
  padding:14px 22px;
  border-radius:14px;
- background:linear-gradient(90deg,#8b5bff,#ff007a);
+ background:linear-gradient(90deg,#00f2ff,#8b5bff);
  color:#fff;
  text-decoration:none;
  font-weight:600;
@@ -331,7 +328,7 @@ section.hero{opacity:1;transform:none;}
 }
 .btn:hover{
  transform:translateY(-4px);
- box-shadow:0 20px 50px rgba(0,0,0,.9);
+ box-shadow:0 20px 50px rgba(0,242,255,0.2);
 }
 
 /* ---------- projects ---------- */
@@ -343,7 +340,7 @@ section.hero{opacity:1;transform:none;}
 .project-overlay{
  position:absolute;
  inset:0;
- background:linear-gradient(180deg,transparent,rgba(5,6,10,.95));
+ background:linear-gradient(180deg,transparent,rgba(0, 242, 255, 0.2), rgba(5,6,10,.98));
  color:#fff;
  display:flex;
  align-items:flex-end;
@@ -356,11 +353,11 @@ section.hero{opacity:1;transform:none;}
 }
 .project:hover .project-overlay{transform:translateY(0);}
 
-/* ---------- modal for project details ---------- */
+/* ---------- modal ---------- */
 .modal-backdrop{
  position:fixed;
  inset:0;
- background:rgba(0,0,0,.75);
+ background:rgba(0,0,0,.85);
  display:flex;
  align-items:center;
  justify-content:center;
@@ -381,7 +378,7 @@ section.hero{opacity:1;transform:none;}
  padding:24px 26px 22px;
  box-shadow:0 28px 90px rgba(0,0,0,.95);
  position:relative;
- border:1px solid rgba(255,255,255,.12);
+ border:1px solid rgba(0,242,255,0.2);
 }
 .modal h3{
  margin-bottom:10px;
@@ -394,7 +391,7 @@ section.hero{opacity:1;transform:none;}
  color:#d6d6e6;
 }
 .modal a{
- color:#ffb347;
+ color:#00f2ff;
  font-weight:600;
  text-decoration:none;
 }
@@ -444,8 +441,8 @@ section.hero{opacity:1;transform:none;}
 <section id="about">
 <h2 class="title">About Me</h2>
 <div class="card about">
-Automation-focused developer building AI tools, bots, testing systems, and smart web applications.  
-Specialized in Python automation, job-workflow bots, AI chat systems, and interactive utilities.  
+Automation-focused developer building AI tools, bots, testing systems, and smart web applications.  
+Specialized in Python automation, job-workflow bots, AI chat systems, and interactive utilities.  
 I focus on real-world usable systems — not toy demos — combining AI + web + scripting for productivity impact.
 </div>
 </section>
@@ -491,7 +488,6 @@ I focus on real-world usable systems — not toy demos — combining AI + web + 
 <h2 class="title">Education</h2>
 <div class="grid">
 
-<!-- College -->
 <div class="card">
   <div class="edu-role">
     <div class="edu-title">B. Tech in Computer Science and Engineering</div>
@@ -504,7 +500,6 @@ I focus on real-world usable systems — not toy demos — combining AI + web + 
   </div>
 </div>
 
-<!-- Higher Secondary -->
 <div class="card">
   <div class="edu-role">
     <div class="edu-title">Higher Secondary Education (Science Stream)</div>
@@ -516,7 +511,6 @@ I focus on real-world usable systems — not toy demos — combining AI + web + 
   </div>
 </div>
 
-<!-- Secondary -->
 <div class="card">
   <div class="edu-role">
     <div class="edu-title">Secondary Education (10th Grade)</div>
@@ -533,7 +527,6 @@ I focus on real-world usable systems — not toy demos — combining AI + web + 
 
 <section id="skills">
 <h2 class="title">Skills</h2>
-
 <div class="skill-main">
 <h3>Languages</h3>
 <span class="bubble">Python</span>
@@ -541,7 +534,6 @@ I focus on real-world usable systems — not toy demos — combining AI + web + 
 <span class="bubble">Java</span>
 <span class="bubble">JavaScript</span>
 </div>
-
 <div class="skill-main">
 <h3>Web</h3>
 <span class="bubble">HTML</span>
@@ -549,12 +541,10 @@ I focus on real-world usable systems — not toy demos — combining AI + web + 
 <span class="bubble">Flask</span>
 <span class="bubble">REST APIs</span>
 </div>
-
 <div class="skill-main">
 <h3>Databases</h3>
 <span class="bubble">MySQL</span>
 </div>
-
 <div class="skill-main">
 <h3>Additional</h3>
 <span class="bubble">Automation</span>
@@ -563,13 +553,11 @@ I focus on real-world usable systems — not toy demos — combining AI + web + 
 <span class="bubble">Git &amp; GitHub</span>
 <span class="bubble">VS Code</span>
 </div>
-
 </section>
 
 <section id="projects">
 <h2 class="title">Projects</h2>
 <div class="grid">
-
 <div class="card project"
      data-title="AI Guardian — Mental Health Chatbot"
      data-desc="NLP-based mental health chatbot using Python, TensorFlow, Flask, and MySQL with intent classification and emotion detection."
@@ -577,7 +565,6 @@ I focus on real-world usable systems — not toy demos — combining AI + web + 
 <h3>AI Guardian — Mental Health Chatbot</h3>
 <div class="project-overlay">Click to view details</div>
 </div>
-
 <div class="card project"
      data-title="Automated Naukri Job Scraper & Auto-Apply Bot"
      data-desc="Selenium-based bot that scrapes Naukri listings, filters roles, and auto-applies with retry logic and tracking."
@@ -585,7 +572,6 @@ I focus on real-world usable systems — not toy demos — combining AI + web + 
 <h3>Automated Naukri Job Scraper &amp; Auto-Apply Bot</h3>
 <div class="project-overlay">Click to view details</div>
 </div>
-
 <div class="card project"
      data-title="AI Mouse — Hand Gesture Control"
      data-desc="Real-time hand gesture-based mouse control using OpenCV, MediaPipe, and PyAutoGUI."
@@ -593,7 +579,6 @@ I focus on real-world usable systems — not toy demos — combining AI + web + 
 <h3>AI Mouse — Hand Gesture Control</h3>
 <div class="project-overlay">Click to view details</div>
 </div>
-
 </div>
 </section>
 
@@ -618,8 +603,7 @@ I focus on real-world usable systems — not toy demos — combining AI + web + 
 <div class="card">
 <strong>AI Mastery Program — Be10x</strong><br><br>
 Completed training in AI-assisted development, automation workflows, and data tools.<br>
-Covered Python with AI tools, SQL, Power BI, AI-powered web/app development, and automation platforms.<br>
-Applied AI-assisted techniques for productivity, data handling, and technical workflow optimization.<br><br>
+Covered Python with AI tools, SQL, Power BI, AI-powered web/app development, and automation platforms.<br><br>
 <a class="btn" href="https://raw.githubusercontent.com/RizwanB312/portfolio-files/main/Be10xCertificate.pdf">View Certificate</a>
 </div>
 </section>
@@ -630,12 +614,11 @@ Applied AI-assisted techniques for productivity, data handling, and technical wo
 📞 +91 7907075183<br>
 📧 rizwannowfal001@gmail.com<br>
 📍 Bangalore, India<br>
-GitHub: <a href="https://github.com/RizwanB312">RizwanB312</a><br>
-LinkedIn: <a href="https://www.linkedin.com/in/rizwan-n-72955234a">linkedin.com/in/rizwan-n-72955234a</a>
+GitHub: <a href="https://github.com/RizwanB312" style="color:#00f2ff">RizwanB312</a><br>
+LinkedIn: <a href="https://www.linkedin.com/in/rizwan-n-72955234a" style="color:#00f2ff">linkedin.com/in/rizwan-n-72955234a</a>
 </div>
 </section>
 
-<!-- modal -->
 <div class="modal-backdrop" id="projectModal">
   <div class="modal">
     <button class="modal-close" id="modalClose">&times;</button>
@@ -646,27 +629,23 @@ LinkedIn: <a href="https://www.linkedin.com/in/rizwan-n-72955234a">linkedin.com/
 </div>
 
 <script>
-// spotlight
 const spot=document.getElementById('spot');
 document.addEventListener('mousemove',e=>{
  spot.style.left=e.clientX+'px';
  spot.style.top=e.clientY+'px';
 });
 
-// scroll progress
 window.addEventListener('scroll',()=>{
  const h=document.documentElement;
  const sc=(h.scrollTop)/(h.scrollHeight-h.clientHeight)*100;
  document.getElementById('progress').style.width=sc+'%';
 });
 
-// show only one section at a time
 const sections=[...document.querySelectorAll('section')];
 function updateActiveSection(){
  const viewportMid=window.innerHeight/2;
  let closest=null;
  let closestDist=Infinity;
-
  sections.forEach(sec=>{
    const rect=sec.getBoundingClientRect();
    const secMid=rect.top+rect.height/2;
@@ -676,7 +655,6 @@ function updateActiveSection(){
      closest=sec;
    }
  });
-
  sections.forEach(sec=>{
    if(sec===closest){
      sec.classList.add('active');
@@ -688,18 +666,6 @@ function updateActiveSection(){
 updateActiveSection();
 window.addEventListener('scroll',updateActiveSection);
 
-// typing disabled
-const text="";
-let i=0;
-function type(){
- if(i<text.length){
-   document.getElementById('typing').innerHTML+=text[i++];
-   setTimeout(type,60);
- }
-}
-type();
-
-// project modal
 const modal=document.getElementById('projectModal');
 const modalTitle=document.getElementById('modalTitle');
 const modalDesc=document.getElementById('modalDesc');
@@ -723,4 +689,3 @@ modal.addEventListener('click',e=>{
 
 </body>
 </html>
-
